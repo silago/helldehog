@@ -1,0 +1,12 @@
+::res://::1433801961
+helldehog.gd::GDScript::1433801961::
+icon.png::ImageTexture::1432676585::
+player.xml::PackedScene::1433801961::
+::res://res::1432760891
+Urodec.tex::ImageTexture::1432676751::texture_2d<>../../../../work/Helldehog/res/Urodec.png<>0d488c74ff191256d193566e9e8957dd<>1430747264
+helldehog.tex::ImageTexture::1432759459::texture_2d<>../../../../work/Helldehog/res/helldehog.png<>ee52c7573452cc3438ee710127b0699b<>1432759451
+::res://res/tilemaps::1433093223
+map.png::ImageTexture::1432475630::
+map.xml::::1432482428::
+mininicular.png::ImageTexture::1432935455::
+mininicular_gray.png::ImageTexture::1432935453::

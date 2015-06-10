@@ -1,0 +1,82 @@
+
+extends RigidBody2D
+
+
+var anim=""    #\u043f\u0435\u0440\u0435\u043c\u0435\u043d\u043d\u0430\u044f \u0430\u043d\u0438\u043c\u0430\u0446\u0438\u0438
+var siding_left=false    #\u043f\u0435\u0440\u0435\u043c\u0435\u043d\u043d\u0430\u044f \u043f\u0435\u0440\u0435\u043c\u0435\u0449\u0435\u043d\u0438\u044f \u0432\u043b\u0435\u0432\u043e
+var jumping=false    #\u043f\u0435\u0440\u0435\u043c\u0435\u043d\u043d\u0430\u044f \u043f\u0440\u044b\u0436\u043a\u0430
+var stopping_jump=false    #\u043f\u0435\u0440\u0435\u043c\u0435\u043d\u043d\u0430\u044f \u0437\u0430\u0432\u0435\u0440\u0448\u0435\u043d\u0438\u044f \u043f\u0440\u044b\u0436\u043a\u0430
+
+var WALK_ACCEL = 800.0    #\u0441\u043a\u043e\u0440\u043e\u0441\u0442\u044c \u043f\u0435\u0440\u0435\u043c\u0435\u0449\u0435\u043d\u0438\u044f \u043f\u043e \u0433\u043e\u0440\u0438\u0437\u043e\u043d\u0442\u0430\u043b\u0438
+var WALK_DEACCEL= 800.0    #\u0441\u043a\u043e\u0440\u043e\u0441\u0442\u044c \u0442\u043e\u0440\u043c\u043e\u0436\u0435\u043d\u0438\u044f 
+var WALK_MAX_VELOCITY= 800.0    #\u043c\u0430\u043a\u0441\u0438\u043c\u0430\u043b\u044c\u043d\u0430\u044f \u0441\u043a\u043e\u0440\u043e\u0441\u0442\u044c
+var GRAVITY = 900.0    #\u0433\u0440\u0430\u0432\u0438\u0442\u0430\u0446\u0438\u044f
+var AIR_ACCEL = 200.0    #\u0441\u043a\u043e\u0440\u043e\u0441\u0442\u044c \u043f\u0435\u0440\u0435\u043c\u0435\u0449\u0435\u043d\u0438\u044f \u043f\u043e \u0433\u043e\u0440\u0438\u0437\u043e\u043d\u0442\u0430\u043b\u0438 \u0432 \u043f\u0440\u044b\u0436\u043a\u0435
+var AIR_DEACCEL= 200.0    #\u0442\u043e\u0440\u043c\u043e\u0436\u0435\u043d\u0438\u0435 \u043f\u0440\u044b\u0436\u043a\u0430 (\u043f\u0435\u0440\u0435\u043c\u0435\u0449\u0435\u043d\u0438\u044f \u0432 \u043e\u0431\u0440\u0430\u0442\u043d\u043e\u043c \u043d\u0430\u043f\u0440\u0430\u0432\u043b\u0435\u043d\u0438\u0438) \u0432 \u043f\u0440\u044b\u0436\u043a\u0435. \u0417\u043d\u0430\u0447\u0435\u043d\u0438\u0435, \u0431\u043b\u0438\u0437\u043a\u043e\u0435 \u043a \u043d\u0443\u043b\u044e \u0431\u0443\u0434\u0435\u0442 \u0434\u0435\u043b\u0430\u0442\u044c \u0438\u0433\u0440\u0443 \u043f\u043e\u0445\u043e\u0436\u0443\u044e \u043d\u0430 Mario Bros'
+var JUMP_VELOCITY=460    #\u0441\u043a\u043e\u0440\u043e\u0441\u0442\u044c \u043f\u0440\u044b\u0436\u043a\u0430
+var STOP_JUMP_FORCE=900.0    #\u0441\u0438\u043b\u0430 \u0442\u043e\u0440\u043c\u043e\u0436\u0435\u043d\u0438\u044f \u043f\u0440\u044b\u0436\u043a\u0430
+
+var MAX_FLOOR_AIRBORNE_TIME = 0.15    #\u0412\u0440\u0435\u043c\u044f \u043a\u0430\u0441\u0430\u043d\u0438\u044f, \u043f\u043e\u0441\u043b\u0435 \u043a\u043e\u0442\u043e\u0440\u043e\u0433\u043e \u0443\u0436\u0435 \u043f\u0440\u044b\u0433\u043d\u0443\u0442\u044c \u043d\u0435\u043b\u044c\u0437\u044f. \u0422\u043e-\u0435\u0441\u0442\u044c \u0432\u0440\u0435\u043c\u044f, \u0432 \u0442\u0435\u0447\u0435\u043d\u0438\u0438 \u043a\u043e\u0442\u043e\u0440\u043e\u0433\u043e \u043c\u043e\u0436\u043d\u043e \u0441\u0434\u0435\u043b\u0430\u0442\u044c \u0432\u0442\u043e\u0440\u043e\u0439 \u043f\u0440\u044b\u0436\u043e\u043a. \u041d\u0435 \u043c\u0435\u043d\u044f\u0439\u0442\u0435, \u0435\u0441\u043b\u0438 \u043d\u0435 \u0445\u043e\u0442\u0438\u0442\u0435 "\u0434\u0432\u043e\u0439\u043d\u044b\u0445" \u0438\u043b\u0438 \u0431\u0435\u0441\u043a\u043e\u043d\u0435\u0447\u043d\u044b\u0445 \u043f\u0440\u044b\u0436\u043a\u043e\u0432.
+
+var airborne_time=1e20  #\u0432\u0440\u0435\u043c\u044f \u0432 \u0432\u043e\u0437\u0434\u0443\u0445\u0435
+
+var floor_h_velocity=0.0 
+
+
+func _fixed_process(delta):
+    var move_left = Input.is_action_pressed("move_left")
+    var move_right = Input.is_action_pressed("move_right")
+    var jump = Input.is_action_pressed("jump")
+    var velocity = Vector2()
+    if (jump):
+        apply_impulse(Vector2(1,10),Vector2(10,1))
+    print("_")
+
+
+
+func _integrate_forces(s):
+    var lv = s.get_linear_velocity()
+    var step = s.get_step()
+    var new_anim=anim
+    var new_siding_left=siding_left
+
+    var move_left = Input.is_action_pressed("move_left")
+    var move_right = Input.is_action_pressed("move_right")
+    var jump = Input.is_action_pressed("jump")
+    print("DEBUG:", move_left)
+    print("1")
+    print("2")
+    
+    lv.x-=floor_h_velocity
+    floor_h_velocity=0.0
+
+    #SEARCH GROUND CONTACT
+    var found_floor=false
+    var floor_index=-1
+    
+    for x in range(s.get_contact_count()):
+        var ci = s.get_contact_local_normal(x)
+        if (ci.dot(Vector2(0,-1))>0.6):
+            found_floor=true
+            floor_index=x
+
+    if (found_floor):
+        airborne_time=0.0 
+    else:
+        airborne_time+=step #\u0432\u0440\u0435\u043c\u044f, \u043f\u0440\u043e\u0432\u0435\u0434\u0435\u043d\u043d\u043e\u0435 \u0432 \u0432\u043e\u0437\u0434\u0443\u0445\u0435
+        
+    var on_floor = airborne_time < MAX_FLOOR_AIRBORNE_TIME
+
+    if (jumping):
+        if (lv.y>0):
+            jumping=false
+        elif (not jump):
+            stopping_jump=true
+            
+        if (stopping_jump):
+            lv.y+=STOP_JUMP_FORCE*step
+
+func _ready():
+    #Initalization here
+    set_fixed_process(true)
+    pass

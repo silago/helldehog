@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE map SYSTEM "http://mapeditor.org/dtd/1.0/map.dtd">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="42" height="42" tilewidth="16" tileheight="16" nextobjectid="2">
+ <tileset firstgid="1" name="mininicular" tilewidth="16" tileheight="16">
+  <image source="mininicular.png" width="128" height="128"/>
+ </tileset>
+ <tileset firstgid="65" name="mininicular_gray" tilewidth="16" tileheight="16">
+  <image source="mininicular_gray.png" width="128" height="128"/>
+ </tileset>
+ <layer name="l3" width="42" height="42" opacity="0.15">
+  <data encoding="base64" compression="zlib">
+   eJzt0EEKwCAMAMH4/0/3qHipFVFTZiDgIYHFiKpcPK2Z2wydu//zdMOfOrNMlv+M7v3m1q7Z9tG9kbuVnV/3d3QBAAAAAGTwAPo9AUo=
+  </data>
+ </layer>
+ <layer name="l2" width="42" height="42" opacity="0.55">
+  <data encoding="base64" compression="zlib">
+   eJztl90OgjAMhbt77/CF5q3cwfs/izamUmqXQH9Akp1kcSNy+nE23QD4qLzbg7UKiwqsVUFXVfqtT6s4i8Y5NnhAXB/FdzI5UROrWdhYPoO8p7KWwcm5SORZ2Pi5odYEOh/eO/swv/7a/HLOurEWrQH+bBGMJGLluUnOrT58DUQyyhrojesROS2ZcNYsoTf/j5rBlskZnFafbM6ItXUUp3f9H8XJ91KPT5Y6Z6w6Z6yuxklnuX/n5KweH3lmjBL5F1jmf6/o7ELtFkb3619geXeyesgzfpSQ68768p3E4hfho/nKGl6/zrmu4fW7Gmfkbz6TMzLTbM6oTDVOq7dkjMxU47SytjgjMm1xWnPIylTjHBze0iOTk/qeuUcNkM+5N9PWPGdz0nhrpmdyejKV16L3JsllySJ6bz+rRlfXlfUC9vYxTA==
+  </data>
+ </layer>
+ <layer name="l1" width="42" height="42">
+  <properties>
+   <property name="Collidable" value="True"/>
+  </properties>
+  <data encoding="base64" compression="zlib">
+   eJztl80KwjAQhLfeRG968erNY0nf/9ks2MUlLmliZmyKGVhaKJl+7OZnM4jIsIMY5SV9qi4FHlfZVpY1ZrHfWlCKZZTPOmyllnKWUi3nAcRxXvleW9upYqwVs6ZhjjvIi8V5kvecCQA/FqfdXxE5ZXDaXLbM6Z1ZCE+0GOcqmxN19rM5kZ4ohSVa53wIfv2okF5ez4oSen7GrCj94zqynhpr/ViJJ1qMOdo52+dkrPlf9J8oP4b2wBn3yQgh9zjVTTic6Jyy1js6p0xOZE6Zda/JqfbHnieD8xvWozPW5rP2fjQt4d1hc1nj/UfH2r4+lyUYJn33/FO8cV1zx6uH/bflKWHpgY2urpb1BMhsCeY=
+  </data>
+ </layer>
+ <objectgroup name="objects">
+  <object id="1" name="exit" gid="1" x="288.333" y="496">
+   <properties>
+    <property name="action" value="exit"/>
+    <property name="map" value="map2.tmx"/>
+   </properties>
+  </object>
+ </objectgroup>
+</map>

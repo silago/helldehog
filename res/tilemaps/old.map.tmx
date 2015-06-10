@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE map SYSTEM "http://mapeditor.org/dtd/1.0/map.dtd">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="43" height="42" tilewidth="16" tileheight="16" nextobjectid="2">
+ <tileset firstgid="1" name="mininicular" tilewidth="16" tileheight="16">
+  <image source="mininicular.png" width="128" height="128"/>
+ </tileset>
+ <tileset firstgid="65" name="mininicular_gray" tilewidth="16" tileheight="16">
+  <image source="mininicular_gray.png" width="128" height="128"/>
+ </tileset>
+ <layer name="l3" width="43" height="42" opacity="0.15">
+  <data encoding="base64" compression="zlib">
+   eJzt0jEKACEMBED9/6ctBQv1RIxyM5AuwSUxpSpfXK2V+VeyRuw1OseNd/xDztf+QJt1RsTNd+rtYdQ3M7fT1zdOZgMAAAAAYKwA2WQBSw==
+  </data>
+ </layer>
+ <layer name="l2" width="43" height="42" opacity="0.55">
+  <data encoding="base64" compression="zlib">
+   eJztltEOwjAIRfm17s24N/f/36IkEvEG59JCzcw9SaMlDs6QaUVeLG41F/fvo30Ub19es0DXy2OtH5wE4it8ptpVucm7n+3xPvCa5lbkmOGKblFe3V8P1LtJ7KjXbgOOWGPvu7Z+Haln8+DvL8vTMN+ofy2I7eXx85DtiXU0//KM9fTG+1ai+f3v1yZ9vfmVa2+eGa4ZszbTdfSZmOnq/3dH8lRC1xroWsMZXe0ceAZX7zuSB8+bmTRYPa523qnsra+h9MwAes6YBUIIIYQQQggh/88dPrIw8A==
+  </data>
+ </layer>
+ <layer name="l1" width="43" height="42">
+  <properties>
+   <property name="Collidable" value="True"/>
+  </properties>
+  <data encoding="base64" compression="zlib">
+   eJztlrsOwjAMRU3LBN1ggQ022Gj4/28Di1hyTZraoS0ZfKWrIhTXp3k4bgFgw3yEaR1EjDZuLFYTL8eflfl4TszxMMShbiLvXREjWXfGnFZGUv/2ieW9KmJK1nAuXWJe5NZ8s2UN5hbtA61yrE30UsK57A3j+R7o2P+SM0QvyT4lWQMCDLnwuYeycze3UnWOuJCT9tTa5y6lMdZ/1Yacaucj4RpLztLavrSoFtc8n3S+OavmjltbVDdl72DpWdYSr5c1s6YYa90D8izVOq/8DiphbWDYI/zSF9B7Anzf6bm11+wB2uMtfPqbJ8tlZSYuzrSNz1bByfuWBtJ9y5g7MV7+DuJ7NSxut9vtdrvdbrfb7Xbn/AK3YxB/
+  </data>
+ </layer>
+ <objectgroup name="objects">
+  <object id="1" name="exit" gid="1" x="47" y="320">
+   <properties>
+    <property name="action" value="exit"/>
+   </properties>
+  </object>
+ </objectgroup>
+</map>
