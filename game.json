@@ -1,0 +1,17 @@
+{
+    "config":{
+        "start_scene_name":"map.json"
+    },
+    "scenes":{
+        "map.json":{
+            "start":[100,100],
+            "targets":[
+                {
+                    "position":[200,200],
+                    "target":"next.xml"
+                }
+            ]
+        }
+    }
+}
+
