@@ -132,8 +132,9 @@ func import_tilemap(path,name):
 
 	var tileset_data = map_data["tilesets"]
 	var cell_size = Vector2(map_data["tilewidth"], map_data["tileheight"])
-	var tileset = createTileset(tileset_data, cell_size,path)
-
+	var tileset = createTileset(tileset_data, cell_size,path,true)
+	var uncollidable_tileset = createTileset(tileset_data, cell_size,path,false)
+	
 	if(!tileset):
 		print("Something went wrong while creating the tileset. Make sure all files are at the right path")
 		return false
@@ -149,7 +150,13 @@ func import_tilemap(path,name):
 		layer_map.set_owner(tilemap_root)
 		layer_map.set_name(l["name"])
 		layer_map.set_cell_size(cell_size)
-		layer_map.set_tileset(tileset)
+		print(l.keys())
+		if (l.has("properties")):
+			print(l["properties"].keys())
+		if (l.has("properties") and l["properties"].has("collidable") and l["properties"]["collidable"]):
+			layer_map.set_tileset(tileset)
+		else:
+			layer_map.set_tileset(tileset)
 		var i = 0
 		for y in range(0, l["height"]):
 			for x in range(0, l["width"]):
