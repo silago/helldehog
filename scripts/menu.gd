@@ -24,19 +24,19 @@ func load_first_scene():
 	var tilemap_importer = get_node("/root/tilemap_importer")
 	var first_scene = tilemap_importer.import_tilemap(TILEMAP_PREFIX,start_scene_name)
 	
-	var rain = Particles2D.new()
-	rain.set_amount(999)
-	rain.set_lifetime(10)
-	rain.set_emitting(true)
-	rain.set_emissor_offset(Vector2(800,0))
-	rain.set_emission_half_extents(Vector2(800,0))
-	rain.set_param(rain.PARAM_DIRECTION,10)
-	rain.set_param(rain.PARAM_LINEAR_VELOCITY,10)
-	rain.set_param(rain.PARAM_SPREAD,1)
-	rain.set_param(rain.PARAM_HUE_VARIATION,0.6)
-	rain.set_param(rain.PARAM_GRAVITY_STRENGTH,20)
-	if (rain):
-		first_scene.add_child(rain)
+	#var rain = Particles2D.new()
+	#rain.set_amount(999)
+	#rain.set_lifetime(10)
+	#rain.set_emitting(true)
+	#rain.set_emissor_offset(Vector2(800,0))
+	#rain.set_emission_half_extents(Vector2(800,0))
+	#rain.set_param(rain.PARAM_DIRECTION,10)
+	#rain.set_param(rain.PARAM_LINEAR_VELOCITY,10)
+	#rain.set_param(rain.PARAM_SPREAD,1)
+	#rain.set_param(rain.PARAM_HUE_VARIATION,0.6)
+	#rain.set_param(rain.PARAM_GRAVITY_STRENGTH,20)
+	#if (rain):
+	#	first_scene.add_child(rain)
 	
 	return first_scene
 
