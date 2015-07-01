@@ -10,7 +10,7 @@ const FLIPPED_DIAGONALLY_FLAG   = 0x20000000
 #func _ready():
 #	error_popup = get_node("ErrorPopup")
 
-func createTileset(var data, var cell_size,var path_prefix):
+func createTileset(var data, var cell_size,var path_prefix,var collidable):
 	var map_path = path_prefix
 	
 	var ts = TileSet.new()
@@ -46,7 +46,7 @@ func createTileset(var data, var cell_size,var path_prefix):
 
 				if t.has("tiles"):
 					for tile in tiles:
-						if tile == id and tiles[tile].has("objectgroup"):
+						if tile == id and tiles[tile].has("objectgroup") and collidable:
 							for obj in tiles[tile]["objectgroup"]["objects"]:
 								if !obj.has("polyline") and !obj.has("polygon") and !obj.has("ellipse"):
 									var w = obj["width"]
@@ -150,13 +150,14 @@ func import_tilemap(path,name):
 		layer_map.set_owner(tilemap_root)
 		layer_map.set_name(l["name"])
 		layer_map.set_cell_size(cell_size)
-		print(l.keys())
+		#print(l.keys())
 		if (l.has("properties")):
-			print(l["properties"].keys())
-		if (l.has("properties") and l["properties"].has("collidable") and l["properties"]["collidable"]):
+			pass
+			#print(l["properties"].keys())
+		if (l.has("properties") and l["properties"].has("collidable") and l["properties"]["collidable"]=="true"):
 			layer_map.set_tileset(tileset)
 		else:
-			layer_map.set_tileset(tileset)
+			layer_map.set_tileset(uncollidable_tileset)
 		var i = 0
 		for y in range(0, l["height"]):
 			for x in range(0, l["width"]):

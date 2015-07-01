@@ -29,7 +29,7 @@
          "opacity":1,
          "properties":
             {
-             "collidable":"True"
+             "collidable":"true"
             },
          "type":"tilelayer",
          "visible":true,
@@ -38,23 +38,26 @@
          "y":0
         }, 
         {
+         "draworder":"topdown",
          "height":0,
          "name":"objects",
          "objects":[
                 {
                  "gid":1,
                  "height":16,
+                 "id":1,
                  "name":"exit",
                  "properties":
                     {
                      "action":"exit",
                      "map":"map2.tmx"
                     },
+                 "rotation":0,
                  "type":"",
                  "visible":true,
                  "width":16,
-                 "x":2560,
-                 "y":233
+                 "x":2560.33,
+                 "y":233.333
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -63,11 +66,13 @@
          "x":0,
          "y":0
         }],
+ "nextobjectid":32,
  "orientation":"orthogonal",
  "properties":
     {
 
     },
+ "renderorder":"right-down",
  "tileheight":16,
  "tilesets":[
         {
@@ -83,6 +88,57 @@
             },
          "spacing":0,
          "tileheight":16,
+         "tiles":
+            {
+             "0":
+                {
+                 "objectgroup":
+                    {
+                     "draworder":"index",
+                     "height":0,
+                     "name":"",
+                     "objects":[
+                            {
+                             "height":0,
+                             "id":0,
+                             "name":"",
+                             "polygon":[
+                                    {
+                                     "x":0,
+                                     "y":0
+                                    }, 
+                                    {
+                                     "x":16,
+                                     "y":0
+                                    }, 
+                                    {
+                                     "x":16,
+                                     "y":16
+                                    }, 
+                                    {
+                                     "x":0,
+                                     "y":16
+                                    }],
+                             "properties":
+                                {
+
+                                },
+                             "rotation":0,
+                             "type":"",
+                             "visible":true,
+                             "width":0,
+                             "x":0,
+                             "y":0
+                            }],
+                     "opacity":1,
+                     "type":"objectgroup",
+                     "visible":true,
+                     "width":0,
+                     "x":0,
+                     "y":0
+                    }
+                }
+            },
          "tilewidth":16
         }],
  "tilewidth":16,

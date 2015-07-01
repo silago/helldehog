@@ -35,8 +35,8 @@ func load_first_scene():
 	rain.set_param(rain.PARAM_SPREAD,1)
 	rain.set_param(rain.PARAM_HUE_VARIATION,0.6)
 	rain.set_param(rain.PARAM_GRAVITY_STRENGTH,20)
-	
-	first_scene.add_child(rain)
+	if (rain):
+		first_scene.add_child(rain)
 	
 	return first_scene
 
@@ -51,7 +51,7 @@ func _on_start_pressed():
 		add_child(tilemap)
 		tilemap.set_pos(Vector2(0,0))
 		var helldehog = preload("res://scenes/helldehog.scn").instance()
-		add_child(helldehog)
+		tilemap.add_child(helldehog)
 		helldehog.set_pos(Vector2(100,500))
 	
 	else:
