@@ -51,8 +51,12 @@ func _on_start_pressed():
 		add_child(tilemap)
 		tilemap.set_pos(Vector2(0,0))
 		var helldehog = preload("res://scenes/helldehog.scn").instance()
+		var fish =  preload("res://scenes/fish.scn").instance()
 		tilemap.add_child(helldehog)
+		tilemap.add_child(fish)
 		helldehog.set_pos(Vector2(100,500))
+		fish.set_pos(Vector2(200,500))
+
 	
 	else:
 		print("ERR TLMP IMPRT")
