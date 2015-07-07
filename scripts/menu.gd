@@ -51,11 +51,16 @@ func _on_start_pressed():
 		add_child(tilemap)
 		tilemap.set_pos(Vector2(0,0))
 		var helldehog = preload("res://scenes/helldehog.scn").instance()
-		var fish =  preload("res://scenes/fish.scn").instance()
+		var hiene =  preload("res://scenes/hiene.scn").instance()
+		#fish.set_scale(Vector2(0.1,0.1))
+		#fish.get_node("anim").play("кгтrun")
+		#fish.get_node("body").set_linear_velocity(Vector2(110,1500))
+	
 		tilemap.add_child(helldehog)
-		tilemap.add_child(fish)
+		tilemap.add_child(hiene)
 		helldehog.set_pos(Vector2(100,500))
-		fish.set_pos(Vector2(200,500))
+		hiene.set_pos(Vector2(200,500))
+		hiene.get_node("body").set_target(helldehog)
 
 	
 	else:
