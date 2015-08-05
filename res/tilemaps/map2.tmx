@@ -1,36 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE map SYSTEM "http://mapeditor.org/dtd/1.0/map.dtd">
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="42" height="42" tilewidth="16" tileheight="16" nextobjectid="2">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="150" height="41" tilewidth="16" tileheight="16" nextobjectid="32">
  <tileset firstgid="1" name="mininicular" tilewidth="16" tileheight="16">
-  <image source="mininicular.png" width="128" height="128"/>
+  <image source="mininicular.png" width="64" height="128"/>
+  <tile id="0">
+   <objectgroup draworder="index">
+    <object id="0" x="0" y="0">
+     <polygon points="0,0 16,0 16,16 0,16"/>
+    </object>
+   </objectgroup>
+  </tile>
  </tileset>
- <tileset firstgid="65" name="mininicular_gray" tilewidth="16" tileheight="16">
-  <image source="mininicular_gray.png" width="128" height="128"/>
- </tileset>
- <layer name="l3" width="42" height="42" opacity="0.15">
+ <layer name="l3" width="150" height="41" opacity="0.1">
   <data encoding="base64" compression="zlib">
-   eJzt0EEKwCAMAMH4/0/3qHipFVFTZiDgIYHFiKpcPK2Z2wydu//zdMOfOrNMlv+M7v3m1q7Z9tG9kbuVnV/3d3QBAAAAAGTwAPo9AUo=
+   eJzt1LENw0AMBMFXGXL/hSpx5MhUoLPvZwCGjLjgsdY6Cobfku5BV53SPeiqU7oHXXVK96CrTukedNUp3YOuOqV70FWndA+66pTuQVed0j3oqtPnfc73pDvR1X9L96CrTukedNUp3YOuOqV70FWndA+66pTuQVed0j3oqlO6B131m9zxvLGjqz1Nb/m6saOrPaR70FWvdBO66pPuQU+90m3op9Pkdk92pKm9fftf/CUmpj3oCAAAAAAAAKDHBUUhBZM=
   </data>
  </layer>
- <layer name="l2" width="42" height="42" opacity="0.55">
+ <layer name="l2" width="150" height="41" opacity="0.55">
   <data encoding="base64" compression="zlib">
-   eJztl90OgjAMhbt77/CF5q3cwfs/izamUmqXQH9Akp1kcSNy+nE23QD4qLzbg7UKiwqsVUFXVfqtT6s4i8Y5NnhAXB/FdzI5UROrWdhYPoO8p7KWwcm5SORZ2Pi5odYEOh/eO/swv/7a/HLOurEWrQH+bBGMJGLluUnOrT58DUQyyhrojesROS2ZcNYsoTf/j5rBlskZnFafbM6ItXUUp3f9H8XJ91KPT5Y6Z6w6Z6yuxklnuX/n5KweH3lmjBL5F1jmf6/o7ELtFkb3619geXeyesgzfpSQ68768p3E4hfho/nKGl6/zrmu4fW7Gmfkbz6TMzLTbM6oTDVOq7dkjMxU47SytjgjMm1xWnPIylTjHBze0iOTk/qeuUcNkM+5N9PWPGdz0nhrpmdyejKV16L3JsllySJ6bz+rRlfXlfUC9vYxTA==
+   eJzt2dFqhDAQQNH4UFaw//+9WynCMB3TOCbpTL0HpOu2hoVeYsyW8m0pPy0Nvzt7z7r27HWr1s+BOOgKI2TuirbiytqVdyzMcaWrszmCrqBd7eq3MegKO7rCCLV7HV3Bq9aOfh2pq+3r+HCMhTmudNUyxsz5anOMhTmydMU9L5cMXd25Dn9jZld35h26ymV2Vx7cB/MZ3VVt36LVoo7VOQ7mGb3P0GNtpe3PgbQVW2tX1nntmtq81QNtxTazq95Yc8VFVxghc1fst8dkrXnkuV7D1Lpa1d/M6AoxWV3pluR57Xs6uQ9Q1M9X5Vr8T9YzlTWHrcb72lbsrvbj0/sBkZL1vG511dqGbPCYp2jqmeT6yLpnXdl70vdEmnquo4VjnpEteOYc2RaezWrhzpxDV5COFu6ujegKUq+1EV1B6rXepitIvXqY0dVr8Pjws/ausnTFfBiP/t5Fv99r/JHoKh66wgh0hZH0c1+mrpAHXWGEs/ujdxxgtxjH3XGAHl31ahP5WP/7jAdieQPC5gNT
   </data>
  </layer>
- <layer name="l1" width="42" height="42">
+ <layer name="l1" width="150" height="41">
   <properties>
-   <property name="Collidable" value="True"/>
+   <property name="collidable" value="true"/>
   </properties>
   <data encoding="base64" compression="zlib">
-   eJztl80KwjAQhLfeRG968erNY0nf/9ks2MUlLmliZmyKGVhaKJl+7OZnM4jIsIMY5SV9qi4FHlfZVpY1ZrHfWlCKZZTPOmyllnKWUi3nAcRxXvleW9upYqwVs6ZhjjvIi8V5kvecCQA/FqfdXxE5ZXDaXLbM6Z1ZCE+0GOcqmxN19rM5kZ4ohSVa53wIfv2okF5ez4oSen7GrCj94zqynhpr/ViJJ1qMOdo52+dkrPlf9J8oP4b2wBn3yQgh9zjVTTic6Jyy1js6p0xOZE6Zda/JqfbHnieD8xvWozPW5rP2fjQt4d1hc1nj/UfH2r4+lyUYJn33/FO8cV1zx6uH/bflKWHpgY2urpb1BMhsCeY=
+   eJztm+tOwzAMRr2BBOImkODHyvu/J4popCjEaXO1Hb5POira1hInp+mydRciugCgGFLQBrAepKANwDZcXhW0Ddjmjf4GXoFW4BUYAbwCI4BXYATwCowAXoERwCswAngFRrCaVy+Jerg8K2jvqqzkVYlTucA3eNXbKct9oIkVvOrtlMuHgrosk/LK0nVghFMu8Kq/V1eyMWeFTj1U7P+UqN0HXrWR8qpmjGbT6hRXuw+8Irpr2Nfi+6seTnG1+8CrNlJ9q7lPeznF1S7dB74+S+9xz/btJtivs5zyPCbqp8n1c2sPy25x56y2a+EIp3JuzfLqaD1r1S0LXo10inNr1nieiUW3tHs1wynOrZqUOLDyd5mavZrplIRbpZEejxI2pgbn1ZdguyScOuNW3Jbca3N+1XxPIO1Kq1NEsmtCSadyvnBtybnVyynuWJrYKO+Uj4RXGpzq5aFLas6qjXSN3pnYnbM+ha+X+hzHklNHbrl+vO2U9H8cydp6Zyv8/z3uL7Do1Kj+DyNVU8u5kMuo46Zi2SlHj/UklxXPlRmx7tRo7+AV0fe+/Q+uzPIMXtn7fFgTnGvw6jfS42OZlFul52q8hnqvbIum4PrXTipn3ep5700u1wAKtjUJjxM/Dp/6wl0Tb8zjR8/5cH45H+N5LRc33u5+Zf9bgVa/Qn/u923L/dCg3K2Rib2KfTmaP2LP4r/DYC6y5Vc4XiX7fiqoFazLD64hHQk=
   </data>
  </layer>
- <objectgroup name="objects">
-  <object id="1" name="exit" gid="1" x="288.333" y="496">
-   <properties>
-    <property name="action" value="exit"/>
-    <property name="map" value="map2.tmx"/>
-   </properties>
-  </object>
- </objectgroup>
+ <objectgroup name="objects"/>
 </map>

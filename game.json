@@ -4,11 +4,20 @@
     },
     "scenes":{
         "map.json":{
-            "start":[100,100],
+            "start":[100,500],
             "targets":[
                 {
-                    "position":[200,200],
-                    "target":"next.xml"
+                    "position":[300,500],
+                    "target":"map2.json"
+                }
+            ]
+        },
+        "map2.json":{
+            "start":[270,100],
+            "targets":[
+                {
+                    "position":[300,300],
+                    "target":"map.json"
                 }
             ]
         }
