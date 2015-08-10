@@ -4,13 +4,25 @@
     },
     "scenes":{
         "map.json":{
+            "alert":"Follow the pass till you see the fork",
             "start":[100,500],
             "targets":[
                 {
                     "position":[300,500],
-                    "target":"map2.json"
+                    "target":"map2.json",
+                    "active":true
                 }
-            ]
+            ],
+            "quests":{
+                "take_beer":{
+                    "position":[0,0],
+                    "active":true,
+                    "alert":"you have picked a bear",
+                    "unlocks":[],
+                    "needs":{},
+                    "sets":{"has_beer":true}
+                }
+            }
         },
         "map2.json":{
             "start":[270,100],

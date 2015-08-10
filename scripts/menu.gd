@@ -13,6 +13,41 @@ var next_scene = false
 var exits = []
 var player = false
 var current_scene = false
+var alert = false
+var alert_queue = []
+
+var quests = {}
+var quest_vars = []
+
+func check_quests():
+
+	for i in quests:
+		var cando = true
+		# add if active or maybe remove "active" in cfg
+		if not(abs(player.get_pos().x - quests[i]["position"][0])<20.0 and abs(player.get_pos().y - quests[i]["position"][1])<20.0):
+			cando = cando * false			
+		for n in quests[i].needs:
+			if quest_vars[n] != quests[i].needs[n]:
+				cando = cando * false
+			pass
+		if cando:
+			for s in quests[i].sets:
+				quest_vars[s] = quests[i].sets[s]
+			pass
+	pass
+
+func init_quests(cfg):
+	var q = {}
+	quests = q
+
+func show_message(msg):
+	if not alert:
+		alert = Label.new()
+		alert.set_text(msg)
+		alert.set_pos(Vector2(300,500))
+		add_child(alert)
+	return
+
 func _process(delta):
 	if not player:
 		return false
@@ -88,7 +123,8 @@ func _on_start_pressed():
 	var cfg  = load_config(config_file)
 	var start_scene_name = cfg["config"]["start_scene_name"]	
 	var tilemap = load_tilemap(cfg,start_scene_name)
-		#var nps = preload("res://scenes/nps.scn").instance()
+	show_message("hello world")
+			#var nps = preload("res://scenes/nps.scn").instance()
 		#var hiene =  preload("res://scenes/hiene.scn").instance()
 		
 		#fish.set_scale(Vector2(0.1,0.1))
