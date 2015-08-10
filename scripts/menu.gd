@@ -117,7 +117,7 @@ func load_objects(cfg,tilemap,scene_name):
 		exits = cfg["scenes"][scene_name]["targets"]
 		player.set_pos(Vector2(start[0],start[1]))
 		
-		var nps = preload("res://scenes/nps.scn").instance()
+		var nps = preload("res://scenes/rat.scn").instance()
 		tilemap.add_child(nps)
 		nps.set_target(player)
 		nps.set_pos(Vector2(start[0],start[1]))
