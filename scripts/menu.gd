@@ -81,6 +81,11 @@ func load_objects(cfg,tilemap,scene_name):
 		var start = cfg["scenes"][scene_name]["start"] 
 		exits = cfg["scenes"][scene_name]["targets"]
 		player.set_pos(Vector2(start[0],start[1]))
+		
+		var nps = preload("res://scenes/nps.scn").instance()
+		tilemap.add_child(nps)
+		nps.set_target(player)
+		nps.set_pos(Vector2(start[0],start[1]))
 		return true
 	return false
 	
@@ -88,40 +93,36 @@ func _on_start_pressed():
 	var cfg  = load_config(config_file)
 	var start_scene_name = cfg["config"]["start_scene_name"]	
 	var tilemap = load_tilemap(cfg,start_scene_name)
-		#var nps = preload("res://scenes/nps.scn").instance()
-		#var hiene =  preload("res://scenes/hiene.scn").instance()
 		
-		#fish.set_scale(Vector2(0.1,0.1))
-		#fish.get_node("anim").play("кгтrun")
-		#fish.get_node("body").set_linear_velocity(Vector2(110,1500))
-	
-		
-		#tilemap.add_child(hiene)
-		#tilemap.add_child(nps)
-		#nps.set_target(helldehog)
-		#nps.set_pos(Vector2(100,500))
-		#hiene.set_pos(Vector2(200,500))
-		#hiene.set_target(helldehog)
-	#	print("ERR TLMP IMPRT")
+	# var hiene =  preload("res://scenes/hiene.scn").instance()	
+	# fish.set_scale(Vector2(0.1,0.1))
+	# fish.get_node("anim").play("кгтrun")
+	# fish.get_node("body").set_linear_velocity(Vector2(110,1500))
+	# tilemap.add_child(hiene)
+
+
+	#
+	# hiene.set_pos(Vector2(200,500))
+	# hiene.set_target(helldehog)
+	# print("ERR TLMP IMPRT")
 	pass
-	#if (not IN_GAME):
-	#	get_tree().get_nodes_in_group(MENU_GROUP).erase()
-	##var scene = ResourceLoader.load(main_scene)
-	##scene.set_name('current_scene')
-	##add_child(scene.instance())
+	# if (not IN_GAME):
+	# get_tree().get_nodes_in_group(MENU_GROUP).erase()
+	# #var scene = ResourceLoader.load(main_scene)
+	# #scene.set_name('current_scene')
+	# #add_child(scene.instance())
 		
-	#get_node("label").set_text("fooo")
-	#get_node("/root/globals").some_function()
-	
+	# get_node("label").set_text("fooo")
+	# get_node("/root/globals").some_function()	
 	
 func _on_exit_pressed():
 	pass
 	get_node("/root").queue_free()
 	
 func _ready():
-	#var game_inited = init_game()
-	#if (game_inited == true):
-	#	print("all good")
+	# var game_inited = init_game()
+	# if (game_inited == true):
+	# print("all good")
 
 	var start = get_node('start')
 	var exit = get_node('exit')
