@@ -50,14 +50,31 @@
                  "properties":
                     {
                      "action":"exit",
-                     "map":"map2.tmx"
+                     "map":"map2.tmx",
+                     "type":"mark"
                     },
                  "rotation":0,
                  "type":"",
                  "visible":true,
                  "width":16,
                  "x":2560.33,
-                 "y":233.333
+                 "y":238.666333333333
+                }, 
+                {
+                 "height":14.6666666666666,
+                 "id":43,
+                 "name":"rat",
+                 "properties":
+                    {
+                     "name":"rat",
+                     "type":"rat"
+                    },
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":15.1666666666667,
+                 "x":606.5,
+                 "y":465
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -66,7 +83,7 @@
          "x":0,
          "y":0
         }],
- "nextobjectid":32,
+ "nextobjectid":45,
  "orientation":"orthogonal",
  "properties":
     {

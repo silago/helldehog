@@ -1,0 +1,53 @@
+###
+npc can:
+1. wait for [player|position]
+2. move to [coords|target]
+3. run from
+4. run to
+5. follow
+
+
+
+scenario:
+    //rats = array of rat[1..10]
+    //pet = rat.new
+    //enemy = snake.new()
+
+    // placed in tilemap
+
+    pet
+    first_rat
+    second_rat
+
+    rats[]
+
+    
+if (objects['name'].indexOf('[]')) {
+    for(o in objects['name']):
+        process(o)
+} else {
+        process(objects['name'])
+}
+
+scenario:{
+    "pet":{
+        "start":{
+            "conditions":[],
+            "actions":{"variable":"placed"}
+        },
+        "after_player_comes":{
+            "conditions":[
+                {"variable":"placed"},
+                {"nearBy":"player"}
+            ],
+            "actions":{
+                "say":"hello",
+                "follow":"player"
+            }
+        }
+    }
+}
+
+
+
+

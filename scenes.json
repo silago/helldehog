@@ -1,0 +1,21 @@
+{
+    "ScriptScene1": {
+        "conditions":{
+            "distanseLT":[["player","rat",20]]
+        },
+        "actions":[
+            "rat":{"say":"hello"}
+        ],
+        "set":{"ScriptScene1_passed":true}
+    },
+    {"ScriptScene2": {
+        "conditions":{
+            "varsSet":{"ScriptScene1_passed":true},
+            "distanseGT":[["player","rat",20]]
+        },
+        "actions":[
+            "rat":{"say":"Good Bye!"}
+        ],
+        "set":{"ScriptScene2_passed":true}
+    }
+}
