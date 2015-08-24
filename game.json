@@ -8,7 +8,7 @@
             "start":[100,500],
             "targets":[
                 {
-                    "position":[300,500],
+                    "position":[300,550],
                     "target":"map2.json",
                     "active":true
                 }

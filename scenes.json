@@ -1,21 +1,27 @@
 {
+    "init":{
+        "conditions":{},
+        "actions":{},
+        "set":{"ScriptScene1_passed":false}
+    },
     "ScriptScene1": {
         "conditions":{
-            "distanseLT":[["player","rat",20]]
+            "varsSet":{"ScriptScene1_passed":false},
+            "distanceLT":[["player","rat",20]]
         },
-        "actions":[
+        "actions":{
             "rat":{"say":"hello"}
-        ],
+        },
         "set":{"ScriptScene1_passed":true}
     },
-    {"ScriptScene2": {
+    "ScriptScene2": {
         "conditions":{
             "varsSet":{"ScriptScene1_passed":true},
-            "distanseGT":[["player","rat",20]]
+            "distanceGT":[["player","rat",30]]
         },
-        "actions":[
+        "actions":{
             "rat":{"say":"Good Bye!"}
-        ],
+        },
         "set":{"ScriptScene2_passed":true}
     }
 }

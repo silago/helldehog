@@ -19,27 +19,26 @@ var script_scenes = false
 var script_scenes_vars = {}
 var quests = {}
 var quest_vars = []
+var once = false
+#func check_quests():
+#	for i in quests:
+#		var cando = true
+#		# add if active or maybe remove "active" in cfg
+#		if not(abs(player.get_pos().x - quests[i]["position"][0])<20.0 and abs(player.get_pos().y - quests[i]["position"][1])<20.0):
+#			cando = cando * false			
+#		for n in quests[i].needs:
+#			if quest_vars[n] != quests[i].needs[n]:
+#				cando = cando * false
+#			pass
+#		if cando:
+#			for s in quests[i].sets:
+#				quest_vars[s] = quests[i].sets[s]
+#			pass
+#	pass
 
-func check_quests():
-
-	for i in quests:
-		var cando = true
-		# add if active or maybe remove "active" in cfg
-		if not(abs(player.get_pos().x - quests[i]["position"][0])<20.0 and abs(player.get_pos().y - quests[i]["position"][1])<20.0):
-			cando = cando * false			
-		for n in quests[i].needs:
-			if quest_vars[n] != quests[i].needs[n]:
-				cando = cando * false
-			pass
-		if cando:
-			for s in quests[i].sets:
-				quest_vars[s] = quests[i].sets[s]
-			pass
-	pass
-
-func init_quests(cfg):
-	var q = {}
-	quests = q
+#func init_quests(cfg):
+#	var q = {}
+#	quests = q
 
 func show_message(msg):
 	if not alert:
@@ -81,7 +80,7 @@ func create_from_object_layer(path,tilemap):
 					if (o["properties"]["name"]):
 						rat.set_name(o["properties"]["name"])
 					tilemap.add_child(rat)
-					rat.set_pos(Vector2(100,500))
+					rat.set_pos(Vector2(o.x,o.y))
 					rat.set_target(rat)
 
 func load_tilemap(cfg,scene_name):
@@ -105,7 +104,7 @@ func load_objects(cfg,tilemap,scene_name):
 		var start = cfg["scenes"][scene_name]["start"] 
 		exits = cfg["scenes"][scene_name]["targets"]
 		player.set_pos(Vector2(start[0],start[1]))
-		
+		player.set_name("player")
 		var nps = preload("res://scenes/rat.scn").instance()
 		tilemap.add_child(nps)
 		nps.set_target(player)
@@ -131,47 +130,65 @@ func load_script_scenes():
 	var d = {}
 	var err = d.parse_json(json.get_as_text())
 	if (err!=OK):
+		print("err config loading")
 		return false
 	pass
 	script_scenes = d
 	
 func process_script_scenes():
-	if (not script_scenes):
+	if (script_scenes==false):
+		print ("no script scenes")
 		return false
+	if (once==true):
+		return false	
 	for i in script_scenes:
+		print("we have found scene: "+i)
 		var sc = script_scenes[i]
 		var condition_result = true	
 		for cond in sc["conditions"]:
+			print("condition: "+cond)
 			if cond == "varsSet":
 				for c in sc["conditions"][cond]:
-					if script_scenes_vars[c]!=sc["conditions"][cond][c]:
+					print(c)
+					print(script_scenes_vars)
+					#print(str(script_scenes_vars[c])+"!="+str(sc["conditions"][cond][c]))
+					if (!script_scenes_vars.has(c))  or script_scenes_vars[c]!=sc["conditions"][cond][c]:
 						condition_result = false
-			elif cond == "distnanceLT" or cond == "distanceGT":
+						print("condition var_set failed")
+			elif cond == "distanceLT" or cond == "distanceGT":
 				for c in sc["conditions"][cond]:
-					var n1_name = sc["conditions"][cond][0]
-					var n2_name = sc["conditions"][cond][1]
-					var dis = sc["conditions"][cond][3]
+					print(c)
+					var n1_name = c[0]
+					var n2_name = c[1]
+					var dis = c[2]
+					print("tilemap/"+n1_name)
 					var n1 = get_node("tilemap/"+n1_name)
 					var n2 = get_node("tilemap/"+n2_name)
-					var n1_pos = n1.get_position_in_parent()
-					var n2_pos = n2.get_position_in_parent()
+					var n1_pos = n1.get_pos()
+					var n2_pos = n2.get_pos()
 					var dif = n1_pos-n2_pos
-					if cond == "distanseLT":
-						if  dif.x>dis or dif.y>dis:
+					print(dif.x)
+					print(dis)
+					print("#__")
+					if cond == "distanceLT":
+						print(str(dif.x)+" "+str(dif.y))
+						if  abs(dif.x)>dis or abs(dif.y)>dis:
 							condition_result = false
-					if cond == "distanseGT":
+							print("condition lower failed")
+					if cond == "distanceGT":
 						if  dif.x<dis or dif.y<dis:
 							condition_result = false
+							print("condition greater failed")
 		if (condition_result==true):
 			for n in sc["actions"]:
 				var action_node = get_node(n)
 				for a in sc["actions"][n]:
 					if a == "say":
-						n.say(sc["actions"][n][a])
+						get_node("tilemap/"+n).say(sc["actions"][n][a])
 			for n in sc["set"]:
 				script_scenes_vars[n] = sc["set"][n]
 
-										
+																					
 func _ready():
 	var start = get_node('start')
 	var exit = get_node('exit')
