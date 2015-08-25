@@ -2,7 +2,7 @@
     "init":{
         "conditions":{},
         "actions":{},
-        "set":{"ScriptScene1_passed":false}
+        "set":{}
     },
     "ScriptScene1": {
         "conditions":{
@@ -20,7 +20,10 @@
             "distanceGT":[["player","rat",30]]
         },
         "actions":{
-            "rat":{"say":"Good Bye!"}
+            "rat":{
+                "say":"Good Bye!",
+                "set_target":"player"
+            }
         },
         "set":{"ScriptScene2_passed":true}
     }

@@ -20,25 +20,7 @@ var script_scenes_vars = {}
 var quests = {}
 var quest_vars = []
 var once = false
-#func check_quests():
-#	for i in quests:
-#		var cando = true
-#		# add if active or maybe remove "active" in cfg
-#		if not(abs(player.get_pos().x - quests[i]["position"][0])<20.0 and abs(player.get_pos().y - quests[i]["position"][1])<20.0):
-#			cando = cando * false			
-#		for n in quests[i].needs:
-#			if quest_vars[n] != quests[i].needs[n]:
-#				cando = cando * false
-#			pass
-#		if cando:
-#			for s in quests[i].sets:
-#				quest_vars[s] = quests[i].sets[s]
-#			pass
-#	pass
 
-#func init_quests(cfg):
-#	var q = {}
-#	quests = q
 
 func show_message(msg):
 	if not alert:
@@ -142,49 +124,50 @@ func process_script_scenes():
 	if (once==true):
 		return false	
 	for i in script_scenes:
-		print("we have found scene: "+i)
 		var sc = script_scenes[i]
 		var condition_result = true	
 		for cond in sc["conditions"]:
-			print("condition: "+cond)
+			if condition_result == false:
+				break
 			if cond == "varsSet":
 				for c in sc["conditions"][cond]:
-					print(c)
-					print(script_scenes_vars)
-					#print(str(script_scenes_vars[c])+"!="+str(sc["conditions"][cond][c]))
-					if (!script_scenes_vars.has(c))  or script_scenes_vars[c]!=sc["conditions"][cond][c]:
-						condition_result = false
-						print("condition var_set failed")
+					#print(script_scenes_vars)
+					if (sc["conditions"][cond][c]==false):
+						if (script_scenes_vars.has(c)) and script_scenes_vars[c]!=sc["conditions"][cond][c]:
+							condition_result = false
+					else:
+						if (!script_scenes_vars.has(c)) or script_scenes_vars[c]!=sc["conditions"][cond][c]:
+							condition_result = false
 			elif cond == "distanceLT" or cond == "distanceGT":
 				for c in sc["conditions"][cond]:
-					print(c)
 					var n1_name = c[0]
 					var n2_name = c[1]
 					var dis = c[2]
-					print("tilemap/"+n1_name)
+					#print("tilemap/"+n1_name)
 					var n1 = get_node("tilemap/"+n1_name)
 					var n2 = get_node("tilemap/"+n2_name)
 					var n1_pos = n1.get_pos()
 					var n2_pos = n2.get_pos()
 					var dif = n1_pos-n2_pos
-					print(dif.x)
-					print(dis)
-					print("#__")
+					#print(dif.x)
+					#print(dis)
 					if cond == "distanceLT":
 						print(str(dif.x)+" "+str(dif.y))
 						if  abs(dif.x)>dis or abs(dif.y)>dis:
 							condition_result = false
-							print("condition lower failed")
+							print("condition lower failed for "+i)
 					if cond == "distanceGT":
-						if  dif.x<dis or dif.y<dis:
+						if  abs(dif.x)<dis and abs(dif.y)<dis:
 							condition_result = false
-							print("condition greater failed")
+							print("condition greater failed for "+i)
 		if (condition_result==true):
 			for n in sc["actions"]:
 				var action_node = get_node(n)
 				for a in sc["actions"][n]:
 					if a == "say":
 						get_node("tilemap/"+n).say(sc["actions"][n][a])
+					if a == "set_target":
+						get_node("tilemap/"+n).set_target(get_node("tilemap/"+sc["actions"][n][a]))
 			for n in sc["set"]:
 				script_scenes_vars[n] = sc["set"][n]
 
