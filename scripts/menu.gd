@@ -99,6 +99,9 @@ func _on_start_pressed():
 	var start_scene_name = cfg["config"]["start_scene_name"]	
 	var tilemap = load_tilemap(cfg,start_scene_name)
 	tilemap.set_name("tilemap")
+	get_node("StreamPlayer").play()
+	get_node("start").hide()
+	get_node("exit").hide()
 	
 func _on_exit_pressed():
 	pass

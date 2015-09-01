@@ -145,7 +145,7 @@ func import_tilemap(path,name):
 	for l in layers:
 		var layer_map = TileMap.new()
 		tilemap_root.add_child(layer_map)
-		layer_map.set_opacity(l["opacity"])
+		layer_map.set_opacity(l["opacity"]*1.5)
 		layer_map.set_owner(tilemap_root)
 		layer_map.set_name(l["name"])
 		layer_map.set_cell_size(cell_size)
