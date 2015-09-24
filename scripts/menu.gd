@@ -99,19 +99,19 @@ func _on_start_pressed():
 	var start_scene_name = cfg["config"]["start_scene_name"]	
 	var tilemap = load_tilemap(cfg,start_scene_name)
 	tilemap.set_name("tilemap")
-<<<<<<< HEAD
+#<<<<<<< HEAD
 	get_node("StreamPlayer").play()
 	get_node("start").hide()
 	get_node("exit").hide()
-=======
-	var l1 = get_node("tilemap/l2")
-	var old_film_scene = preload("res://res/materials/material.scn").instance()
-	l1.add_child(old_film_scene)	
-	l1.move_child(old_film_scene,1)
+#=======
+#	var l1 = get_node("tilemap/l2")
+#	var old_film_scene = preload("res://res/materials/material.scn").instance()#
+#	l1.add_child(old_film_scene)	
+#	l1.move_child(old_film_scene,1)
 	#old_film.set_as_top_level(true)
 	#l1.hide()
 	#get_node("oldfilm").set_owner(get_node("tilemap/l1"))
->>>>>>> 5ff9f03bd3a5c01c2103ee831e71346a97dc0bf7
+#>#>>>>>> 5ff9f03bd3a5c01c2103ee831e71346a97dc0bf7
 	
 func _on_exit_pressed():
 	pass
