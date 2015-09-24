@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="isometric" renderorder="right-down" width="50" height="50" tilewidth="64" tileheight="32" nextobjectid="1">
+ <tileset firstgid="1" name="iso-64x64-outside_" tilewidth="64" tileheight="64" tilecount="160">
+  <image source="iso-64x64-outside_.png" width="640" height="1024"/>
+ </tileset>
+ <layer name="Слой тайлов 1" width="50" height="50">
+  <data encoding="base64" compression="zlib">
+   eJzt191OwzAMBWCnZbfcUfZcA8a4GWLj5/3fgETE4sjz1hVNs1N8cdQl0iR/cVKliYhSJBKJRCKRSCQScZ0nBzVcyjEHSx8OV2FH65Z+Jpae5mHpaR4W6WjVojlafIf9B0dLlmOO1noSDl855djkvFfPM8wvHNQ9xVGyzfnIeRAObxat9qEG+7JzbtEcdzkdjB9zVvSzv16dWqQhVUMnesKer5wX8Czgf5YmrH8ABz/Z8gmWPel7zNqB9WsZ6HCf7aEnNzXWjg7GxywlS7C8iZ5gXy3Ca6055B5LYCn94HPP/bB0nDIkZcwOeU6sHZqrE79xbmxveeiH5pDPJVjWTh3a+mvz6Fg7cWh1joUd5b5SzvrOoeMcVwLLtlq4N5bfkVMM9zXyTryi3zuYleWcupNS/9g32DU98kwnMea6phgsvimlgddd2z9/dVzDIh23F6jdoiffTncqhQ==
+  </data>
+ </layer>
+</map>
