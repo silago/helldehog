@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="isometric" renderorder="right-down" width="35" height="10" tilewidth="64" tileheight="32" nextobjectid="1">
+ <tileset firstgid="1" name="iso-64x64-outside_" tilewidth="64" tileheight="64" tilecount="160">
+  <image source="iso-64x64-outside_.png" width="640" height="1024"/>
+ </tileset>
+ <layer name="ground" width="35" height="10">
+  <data encoding="base64" compression="zlib">
+   eJylk8sOgkAMRSsufcSNiTs1slL/DcOg/L7T0Btvmo6CkJzA8Jozt51KRKofLI3oqOk52Nh3u8wjkzKNnZWe/v2yZ80ID+Vgc+j1hbhlzgUPoD5b8kj2Tk9jeI5xQTbsoh5Ho+QBnkEmKWCsC1CHk3MA+0Km3mOdaa1+zFSXqww9UkncKyWiHObmwv3CveIzWQQ1wtp9L891Qb+UahPVqJPP3oEfO/3jwh4ll5UMfcF9i/laGs91+VYbePj8MSey4ftT97Rydy5TPHj9ncsGvAENfTMW
+  </data>
+ </layer>
+ <layer name="grassnwater" width="35" height="10">
+  <data encoding="base64" compression="zlib">
+   eJy90zsKhTAQheERCzutonbxVemSxMf+V+EZmIG5l9Qn8BVGIT+JqUVkgQlWOCBDggou4Y0e6tCTbU5HQ27ZYbMe1YV3I9zwkFoO6xmsZQi8T/emIbSsgXbNoSG2VOSWEu1jndMkv3coPivfJ8Y/7Ofg66a/xkxs6Y2vmwrftKQWXVvvru9PqeWFk9DyAYOBDDA=
+  </data>
+ </layer>
+ <layer name="trees" width="35" height="10">
+  <data encoding="base64" compression="zlib">
+   eJybxYAJ+qB0ERa5kQwmA/EEIJ4xAHZPQGJPAuKWAXADujsmosnNBeJZUHYFfZwDtq8PTWwOFjF6gLlo/NkMqOFFbwALgxkMqOExUGkYF5hFWAlVQAkafwYaWweItYBYDYppCQBd7RGi
+  </data>
+ </layer>
+</map>
