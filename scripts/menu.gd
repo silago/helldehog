@@ -100,7 +100,7 @@ func _on_start_pressed():
 	var tilemap = load_tilemap(cfg,start_scene_name)
 	tilemap.set_name("tilemap")
 #<<<<<<< HEAD
-	get_node("StreamPlayer").play()
+#	get_node("StreamPlayer").play()
 	get_node("start").hide()
 	get_node("exit").hide()
 #=======
@@ -207,10 +207,10 @@ func _ready():
 func _process(delta):
 	if not player:
 		return false
-	for e in exits:
-		if abs(player.get_pos().x - e["position"][0])<20.0 and abs(player.get_pos().y - e["position"][1])<20.0:
-			if (current_scene):
-				current_scene.queue_free()
-			load_tilemap(load_config(config_file),e["target"])
+	#for e in exits:
+	#	if abs(player.get_pos().x - e["position"][0])<20.0 and abs(player.get_pos().y - e["position"][1])<20.0:
+	#		if (current_scene):
+	#			current_scene.queue_free()
+	#		load_tilemap(load_config(config_file),e["target"])
 	#print(player.get_pos())
 	process_script_scenes()

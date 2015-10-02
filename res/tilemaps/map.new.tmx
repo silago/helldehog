@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="270" height="60" tilewidth="16" tileheight="16" nextobjectid="2">
+ <tileset firstgid="1" name="mininicular" tilewidth="16" tileheight="16" tilecount="44">
+  <image source="mininicular.png" width="64" height="176"/>
+ </tileset>
+ <layer name="l3" width="270" height="60" visible="0" opacity="0.1">
+  <data encoding="base64" compression="zlib">
+   eJztwYEAAAAAw6D5U1/hAFUBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACvAf0gAAE=
+  </data>
+ </layer>
+ <layer name="-2" width="270" height="60" opacity="0.53">
+  <data encoding="base64" compression="zlib">
+   eJzt3MFK5TAYBeDOwsWAmxGZV1AY3//55C6EENvr9Lb9m1O+D9wZ7vGSHJKGOk3f/ep+jrLlc6oyHqXN/nFyFtiD3jheen7otfP5uehz9AZkq5rPeiM3P/TO6I2/G8Ymrrv0/NCz3zheen5ovU3n9cb7hrFp/kzZ+aH1bzqvN9bcR6b3Rnp+aFXO5/6z1nxe+rpLzw+thN64naXS9/l6gytJ6I3+LJW47tLzQyuhN/oxa+9wR6A3uJLE3khcd+n5oVX53GDP3lhzhzsCvcGVpO430t4p1RtcSeVzgz17I23tJWeHXup+I23tpZ+zoFU5n/VG7jkLWpXzWW/k5odW5XzWG7n5oaU3aqTnh5beqJGeH1p6o0Z6fmjpjRrp+aGlN2qk54eW3jhe/78Y0/JDL6U33h8cO4KnSW9wLSm98fHg2BH8nvQG11I1n7fs1W+/9/Lg2LMt/d0p+WFO1XzesldPXndz/+MwKT/MqZrPS3v1/3mPbmndJb1Tqje4kor5fG+v/tN7dFvGjkRvcBVV94P39uovB44dhXtYrmTk+8HX6fuZJPWcsvQ9p+SH1pZnDkfr9xlz97CjdNxPlr7npHMW3Iz+3GDuTJLYG/e+55RzFnwZ/bnBUra03nAPC+xFbwBr6Q1gLb0BrDXKvRWQY5R7KyDHKPdWAAAAAAAAAAAAAAAAAAAAAAAA7OsTgxwK9w==
+  </data>
+ </layer>
+ <layer name="-1" width="270" height="60" opacity="0.91">
+  <data encoding="base64" compression="zlib">
+   eJzt3U9v1DAQh2H3gAqih0IrTqjhBhL9/p+P+mApRImdSfxnZvw+klXBtqvMJv55dpukIdTxcDCsOaqjNKyoXZ/11wNjeTl+7s6r154bewG5gZ5eCo97OX7uzKvHj/HUeXuleuXGnzabD2O+fozPmcdnzw0r9fbKjfc2mw+lcn3FQ+ZxK/Poat90ZmjvNaJeuaFx36Odvb7iZfXYUQ9q5di52jd56DUicgOtbPuKlBfvq697P2Pl2Mn10p57jYjcQCvrnEiew//HxHbNtnTspPokdXjoNaIRuaH9d0yoaz2/jkacd6+Zx7WS1kFuyJ8vsvA7JrS37TvS+Hbw/1pJ6/CSG7Xryz1fymEgOtOHWJhPkjos17nWs9+Ig14Da0fr9Xr8GLZ1552pw0OdSe36jr7fWp6inzPrtQU1+g4revYb9Bpt/Sz8W7PSem3lfOO7fYeVOnvmBnRYRm/Agdx6bel84zt9h5U6yY25LEFvbkRejh/v71XIjbmQG32QG3Vyw0r/5R250Qe5Qb/hiYfcsHC+MbmxP44+97X+enhnPTesnG9Mbsjed1h/PbyznBuWzjf2nBt3rr85qs/y6zGDmBlvQW92lI45C71G5Dk34jZevT6F3LBLc89hfU4l3nODfmMuS7CbG5p6jZb3CdSgdJ/HKyNdbyJ9Toxn+X2KJt7vE5irj35jPpb7jRFq319ZW25cqY/cmA+5IVP7/sracuNKfXev+92T+34r1/p5Rm5c26Za91fWlhtpW0fXl/t+zjUfawm6c+N30DWfEun9lUt1aMuN0fWdeT56jnFSXmj9XPRT0DWfts7eX7lUh7bcSEbVp32/zy5mxa+gNze+BHtrzt59ekp1SNfWkXOnR30W9/tstPYbZ3pVre9z1+v03R5eY50t67O832ei9fONv6F8/HwftnVlaV0+U4fFOlvVZ32/z0Jjbkiuk9Lcs9693kt7nbXr87LfZ6AxN6RrmFY11mLNddauz8t+n4HG3LA+n5Kac0pjnbXrs/56zITcaMf7PCE35qUxNwDoRm4AkCI3AEiRGwCkyA0AUuQGAClyA4AUuQFAitwAIEVuAJAiNwBIkRsApMgNAFLkBgApcgOAFLkBQIrcACBFbgCQIjcASJ39G7HkCoBkmxu5AQARuQFAav33YXPjbdQGAlBnWX2t2W/8AxrCKn0=
+  </data>
+ </layer>
+ <layer name="0" width="270" height="60">
+  <properties>
+   <property name="Collidable" value="True"/>
+  </properties>
+  <data encoding="base64" compression="zlib">
+   eJzt3etu0zAAhmHTcRggfrABGrQwJNju/xKpRa1ZVtPGW5M4yfNKr3rKqU7y1XbaOgQAAAAAAAAAAAAAAAAAAAAAAAAAQAvc7d3ufdx7e7ifHj8cniv5cng9TZtTPgawPN7sfXXCX3vvC3+fmSf59zD9n57T5/MAaJNYb3gf+p/TY3gTjtdxALTB1zB9TnTVcQC0yacwfUbIDWA+vAvT54PcAOZFa/0acgNok21mq30bcgNoh5bbJaUPA5UBgH7Ea63xPGy5flH6bZCSANCHFr+f0cebIQoDwFnm1C4p/TFAebRM3u90N/G2YH2kNsnc2iWla+sX/Rye3ntso+W/+9mG478DAi7BXNska86NTTh9bSvfn28n2kYslyVlxlpyY3MwZsbrcL5MxmIb2q7jtLhNrRDLZhf+tzd2R17Pn5tzP8aacyPu45p9d5vNl7dhTrELx4+f8rXdmW25LtbdZQjd63sJaZlpG68r13OqHPLl57cPI9onC7cd88bjYokZ0MfvBz8eHm96lOOcueR+judQftyV51h+3qfzZ+jjLK3vErwkz8r583Los/wx7cqPMfbXHI15sTniksn7QZdq+h+V51rzny1L8kN4qkvE/8ZaUv/DJY31rLJ/ZsntlNa/439JZQbHdOzcKOs5L6nvpOWUdeb43Nrqmz+f6dTbzXk6Zm6k/smr8NTfls772vxIGZHnQ7pWchWmKcsplRsc0yFyI+VAfnvu8/+6mL68n1/XWFtdoo9yg2M6RG5M/Z5IDqvcIFmr3CBZq9wgWavcIFmr3CBZq9wgWavcIFmr3CBZq9wgWavcIFmr3CBZq9wgWavcIFmr3CBZq9wgWavcIFmr3CBZq9wgWavcIFlryo370E0cc6Vr3Ltj4yBO/Z5IDmte3+gam8c4ViRz+7RT1jBWIsn+yg2StcY+inPIDZKlcTzzLp4zNto/2oxEqA==
+  </data>
+ </layer>
+ <layer name="1" width="270" height="60">
+  <data encoding="base64" compression="zlib">
+   eJztwYEAAAAAw6D5U1/hAFUBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACvAf0gAAE=
+  </data>
+ </layer>
+ <objectgroup name="objects">
+  <object id="1" name="exit" gid="1" x="2560.33" y="537.333" width="16" height="16">
+   <properties>
+    <property name="action" value="exit"/>
+    <property name="map" value="map2.tmx"/>
+   </properties>
+  </object>
+ </objectgroup>
+</map>
