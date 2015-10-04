@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="270" height="60" tilewidth="16" tileheight="16" nextobjectid="2">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="270" height="60" tilewidth="16" tileheight="16" nextobjectid="3">
  <tileset firstgid="1" name="mininicular" tilewidth="16" tileheight="16" tilecount="44">
   <image source="mininicular.png" width="64" height="176"/>
+  <tile id="0">
+   <objectgroup draworder="index">
+    <object id="0" x="0" y="-0.0909091">
+     <polygon points="0,0 15.9091,0.0909091 16,15.9091 -0.0909091,16"/>
+    </object>
+   </objectgroup>
+  </tile>
  </tileset>
  <layer name="l3" width="270" height="60" visible="0" opacity="0.1">
   <data encoding="base64" compression="zlib">
@@ -20,7 +27,7 @@
  </layer>
  <layer name="0" width="270" height="60">
   <properties>
-   <property name="Collidable" value="True"/>
+   <property name="collidable" value="true"/>
   </properties>
   <data encoding="base64" compression="zlib">
    eJzt3etu0zAAhmHTcRggfrABGrQwJNju/xKpRa1ZVtPGW5M4yfNKr3rKqU7y1XbaOgQAAAAAAAAAAAAAAAAAAAAAAAAAQAvc7d3ufdx7e7ifHj8cniv5cng9TZtTPgawPN7sfXXCX3vvC3+fmSf59zD9n57T5/MAaJNYb3gf+p/TY3gTjtdxALTB1zB9TnTVcQC0yacwfUbIDWA+vAvT54PcAOZFa/0acgNok21mq30bcgNoh5bbJaUPA5UBgH7Ea63xPGy5flH6bZCSANCHFr+f0cebIQoDwFnm1C4p/TFAebRM3u90N/G2YH2kNsnc2iWla+sX/Rye3ntso+W/+9mG478DAi7BXNska86NTTh9bSvfn28n2kYslyVlxlpyY3MwZsbrcL5MxmIb2q7jtLhNrRDLZhf+tzd2R17Pn5tzP8aacyPu45p9d5vNl7dhTrELx4+f8rXdmW25LtbdZQjd63sJaZlpG68r13OqHPLl57cPI9onC7cd88bjYokZ0MfvBz8eHm96lOOcueR+judQftyV51h+3qfzZ+jjLK3vErwkz8r583Los/wx7cqPMfbXHI15sTniksn7QZdq+h+V51rzny1L8kN4qkvE/8ZaUv/DJY31rLJ/ZsntlNa/439JZQbHdOzcKOs5L6nvpOWUdeb43Nrqmz+f6dTbzXk6Zm6k/smr8NTfls772vxIGZHnQ7pWchWmKcsplRsc0yFyI+VAfnvu8/+6mL68n1/XWFtdoo9yg2M6RG5M/Z5IDqvcIFmr3CBZq9wgWavcIFmr3CBZq9wgWavcIFmr3CBZq9wgWavcIFmr3CBZq9wgWavcIFmr3CBZq9wgWavcIFmr3CBZq9wgWavcIFlryo370E0cc6Vr3Ltj4yBO/Z5IDmte3+gam8c4ViRz+7RT1jBWIsn+yg2StcY+inPIDZKlcTzzLp4zNto/2oxEqA==
@@ -36,6 +43,12 @@
    <properties>
     <property name="action" value="exit"/>
     <property name="map" value="map2.tmx"/>
+   </properties>
+  </object>
+  <object id="2" name="rat" x="432" y="452" width="16" height="16">
+   <properties>
+    <property name="name" value="rat"/>
+    <property name="type" value="rat"/>
    </properties>
   </object>
  </objectgroup>

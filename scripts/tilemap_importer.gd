@@ -11,6 +11,7 @@ const FLIPPED_DIAGONALLY_FLAG   = 0x20000000
 #	error_popup = get_node("ErrorPopup")
 
 func createTileset(var data, var cell_size,var path_prefix,var collidable):
+	print("start tileset creation")
 	var map_path = path_prefix
 	
 	var ts = TileSet.new()
@@ -37,6 +38,8 @@ func createTileset(var data, var cell_size,var path_prefix,var collidable):
 			tiles = t["tiles"]
 		for y in range(0, height, cell_size.y):
 			for x in range(0, width, cell_size.x):
+				if (x>110):
+					continue
 				var xy = Vector2(x, y)
 				var rect = Rect2(xy, size)
 				ts.create_tile(count)
@@ -100,9 +103,12 @@ func createTileset(var data, var cell_size,var path_prefix,var collidable):
 									ts.tile_set_shape_offset(count, Vector2(0, 0))
 
 				count += 1
+	print("tileset created")
 	return ts
 
 func import_tilemap(path,name):
+	print("importing tilemap")
+	var result_layers = []
 	var map_path = path+name
 	#var root_node = get_tree().get_edited_scene_root()
 	#if root_node == null:
@@ -126,8 +132,8 @@ func import_tilemap(path,name):
 		print("Error parsing the map file. Please make sure it's in a valid format. Currently only .json is supported")
 		return false
 
-	var tilemap_root = Node2D.new()
-	tilemap_root.set_name("TileScene")
+	#var tilemap_root = Node2D.new()
+	#tilemap_root.set_name("TileScene")
 
 	var tileset_data = map_data["tilesets"]
 	var cell_size = Vector2(map_data["tilewidth"], map_data["tileheight"])
@@ -140,19 +146,15 @@ func import_tilemap(path,name):
 
 	#root_node.add_child(tilemap_root)
 	#tilemap_root.set_owner(root_node)
-
+	
 	var layers = map_data["layers"]
 	for l in layers:
 		var layer_map = TileMap.new()
-		tilemap_root.add_child(layer_map)
+		#tilemap_root.add_child(layer_map)
 		layer_map.set_opacity(l["opacity"]*1.5)
-		layer_map.set_owner(tilemap_root)
+		#layer_map.set_owner(tilemap_root)
 		layer_map.set_name(l["name"])
 		layer_map.set_cell_size(cell_size)
-		#print(l.keys())
-		if (l.has("properties")):
-			pass
-			#print(l["properties"].keys())
 		if (l.has("properties") and l["properties"].has("collidable") and l["properties"]["collidable"]=="true"):
 			layer_map.set_tileset(tileset)
 		else:
@@ -175,10 +177,12 @@ func import_tilemap(path,name):
 
 					layer_map.set_cell(x, y, gid, flipped_horizontally, flipped_vertically)
 				i += 1
-
+		result_layers.append(layer_map) 
 	#error_popup.set_text("Succesfully imported the map")
 	#error_popup.popup()
-	return tilemap_root
+	print("tilemap imported")
+	#return tilemap_root
+	return result_layers
 
 #func _on_FileDialog_file_selected( path ):
 #	map_path = path
