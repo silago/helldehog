@@ -12,6 +12,7 @@ var TILEMAP_PREFIX = 'res://res/tilemaps/'
 var next_scene = false
 var exits = []
 var player = false
+var rock = false
 var current_scene = false
 var alert = false
 var alert_queue = []
@@ -67,36 +68,17 @@ func load_tilemap(cfg,scene_name):
 	var start_scene_data = cfg["scenes"][scene_name]
 	var tilemap_importer = get_node("/root/tilemap_importer")
 	var layers = tilemap_importer.import_tilemap(TILEMAP_PREFIX,scene_name)
-	#var object = load_objects(cfg,current_scene,scene_name)
-	#create_from_object_layer(TILEMAP_PREFIX+scene_name,current_scene)	
 	return position_layers(layers)
 
+
+
 func position_layers(layers):
-	#var bg = ParallaxBackground.new()
-	#bg.set_b
-	#var fg = ParallaxBackground.new()
-	#var g  = Node2D.new()
-	var bg = get_node("bg")
-	var fg = get_node("fg")
-	var g = get_node("g")
-	g.set_pos(Vector2(0,0))
-	g.set_name("main")
-	g.add_child(player)		
-	for l in layers:
-		var l_name = l.get_name()
-		var l_pos  = int(l_name)
-		if l_pos == 0:
-			g.add_child(l)
-		elif l_pos>0:
-			var fgl = ParallaxLayer.new()
-			fgl.add_child(l)
-			fg.add_child(fgl)
-		else:
-			var bgl = ParallaxLayer.new() 
-			bgl.set_motion_scale(Vector2(-(-0.7-0.1*l_pos),1))
-			bgl.add_child(l)
-			bg.add_child(bgl)
-			
+	var tilemap_importer = get_node("/root/tilemap_importer")
+	var ls  = tilemap_importer.position_layers(layers)
+	var bg = ls[0]
+	var g  = ls[1]
+	var fg = ls[2]
+	
 	add_child(bg)
 	add_child(g)
 	add_child(fg)
@@ -121,8 +103,12 @@ func load_objects(cfg,tilemap,scene_name):
 func _on_start_pressed():
 	var cfg = get_node("/root/globals").get_json_file(config_file)
 	player = preload("res://scenes/helldehog.scn").instance()
-	player.set_pos(Vector2(100,100))
+	player.set_pos(Vector2(100,20))
 	player.set_name("player")
+	
+	rock   = preload("res://scenes/rock.scn").instance()
+	rock.set_pos(Vector2(102,22))
+	rock.set_name("rock")
 	#var cfg  = load_config(config_file)
 	var start_scene_name = cfg["config"]["start_scene_name"]	
 	load_tilemap(cfg,start_scene_name)
@@ -131,6 +117,7 @@ func _on_start_pressed():
 	#for layer in layers:
 	#	#get_node("tilemap").get_p
 	#	pass
+	
 	get_node("start").hide()
 	get_node("exit").hide()	
 
@@ -152,11 +139,14 @@ func process_script_scenes():
 		return false
 	return get_node("/root/globals").process_script_scenes(script_scenes,script_scenes_vars)
 	
-
+func level1():
+	var b = get_node("Level1")
+	b.load_scene()
 																					
 func _ready():
 	get_node('exit').connect('pressed',self,'_on_exit_pressed')
 	get_node('start').connect('pressed',self,'_on_start_pressed')	
+	get_node('Level1').connect('pressed',self,'level1')	
 	load_script_scenes()
 	set_process(true)
 	

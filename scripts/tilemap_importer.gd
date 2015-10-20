@@ -10,6 +10,48 @@ const FLIPPED_DIAGONALLY_FLAG   = 0x20000000
 #func _ready():
 #	error_popup = get_node("ErrorPopup")
 
+func position_layers(layers):
+	var bg = ParallaxBackground.new()
+	var g  = ParallaxBackground.new()
+	var fg = ParallaxBackground.new()
+	
+	bg.set_scroll_base_scale(Vector2(0.3,0.3))
+	#g.set_scroll_base_scale(Vector2(0.3,0.3))
+	#fg.set_scroll_base_scale(Vector2(0.3,0.3))
+	
+	#var bg = get_node("bg")
+	#var fg = get_node("fg")
+	#var g = get_node("g")
+	#g.set_pos(Vector2(0,0))
+	g.set_name("main")
+	#g.add_child(rock)
+	#rock.set_owner(player)
+	
+	#var pin = player.get_node("pin")
+	#pin.set_node_a("player")
+	#pin.set_node_b("rock")
+	
+	
+	var bgl = {}
+	for l in layers:
+		var l_name = l.get_name()
+		var l_pos  = int(l_name)
+		if l_pos == 0:
+			g.add_child(l)
+		elif l_pos>0:
+			var fgl = ParallaxLayer.new()
+			fgl.add_child(l)
+			fg.add_child(fgl)
+		else:
+			bgl[l_pos] = ParallaxLayer.new() 
+			bgl[l_pos].set_motion_scale(Vector2(-(-0.7-0.1*l_pos),1))
+			bgl[l_pos].add_child(l)
+			bg.add_child(bgl[l_pos])
+	return [bg, g ,fg]	
+	pass
+
+
+
 func createTileset(var data, var cell_size,var path_prefix,var collidable):
 	print("start tileset creation")
 	var map_path = path_prefix
@@ -38,8 +80,6 @@ func createTileset(var data, var cell_size,var path_prefix,var collidable):
 			tiles = t["tiles"]
 		for y in range(0, height, cell_size.y):
 			for x in range(0, width, cell_size.x):
-				if (x>110):
-					continue
 				var xy = Vector2(x, y)
 				var rect = Rect2(xy, size)
 				ts.create_tile(count)
@@ -149,11 +189,15 @@ func import_tilemap(path,name):
 	
 	var layers = map_data["layers"]
 	for l in layers:
+		print(l["name"])
+		#if (l["name"]!="0" and l["name"]!="-1"):
+		#	continue
 		var layer_map = TileMap.new()
 		#tilemap_root.add_child(layer_map)
 		layer_map.set_opacity(l["opacity"]*1.5)
 		#layer_map.set_owner(tilemap_root)
 		layer_map.set_name(l["name"])
+		
 		layer_map.set_cell_size(cell_size)
 		if (l.has("properties") and l["properties"].has("collidable") and l["properties"]["collidable"]=="true"):
 			layer_map.set_tileset(tileset)
@@ -174,8 +218,9 @@ func import_tilemap(path,name):
 
 					#clear the flags to get the actual tile id
 					gid &= ~(FLIPPED_HORIZONTALLY_FLAG | FLIPPED_VERTICALLY_FLAG | FLIPPED_DIAGONALLY_FLAG)
-
-					layer_map.set_cell(x, y, gid, flipped_horizontally, flipped_vertically)
+					#if (x<10):
+					if (true):
+						layer_map.set_cell(x, y, gid, flipped_horizontally, flipped_vertically)
 				i += 1
 		result_layers.append(layer_map) 
 	#error_popup.set_text("Succesfully imported the map")

@@ -1,7 +1,6 @@
 extends Node
 
 
-
 func some_function():
 	print("some function called")
 
