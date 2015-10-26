@@ -154,6 +154,6 @@ func _ready():
 
 func _process(delta):
 	if not player:
-		print("not player")
+		#print("not player")
 		return false
 	process_script_scenes()
