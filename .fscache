@@ -1,4 +1,4 @@
-::res://::1445777630
+::res://::1446063553
 balloon.png::ImageTexture::1440345437::
 beach.jpg::ImageTexture::1440845133::
 block.png::ImageTexture::1435786952::
@@ -10,7 +10,7 @@ conclave2.png::ImageTexture::1440847255::
 filmgrain.png::ImageTexture::1441087131::
 fish_skull.png::ImageTexture::1435866700::
 globals.gd::GDScript::1445460059::
-helldehog.gd::GDScript::1445777630::
+helldehog.gd::GDScript::1446058298::
 icon.png::ImageTexture::1432676585::
 img-thing.jpeg::ImageTexture::1441087131::
 player.xml::PackedScene::1434132720::
@@ -18,7 +18,7 @@ vignette.png::ImageTexture::1441087131::
 white.png::ImageTexture::1441087131::
 ::res://fonts::1440350124
 base.fnt::Font::1440350124::font<>fonts/Pacifico.ttf<>6b6170fe52fb23f505b4e056fefd2679<>1370326354
-::res://res::1445724749
+::res://res::1446063516
 Urodec.tex::ImageTexture::1432676751::texture_2d<>../../../../work/Helldehog/res/Urodec.png<>0d488c74ff191256d193566e9e8957dd<>1430747264
 bird.png::ImageTexture::1445724750::
 chuch.png::ImageTexture::1435093734::
@@ -61,6 +61,9 @@ new_canvasitemshader.shd::CanvasItemShader::1441087131::
 head.png::ImageTexture::1436031762::
 part.png::ImageTexture::1436031762::
 tail.png::ImageTexture::1436031762::
+::res://res/sounds::1446063834
+steps.ogg::AudioStreamOGGVorbis::1446063834::
+steps.wav::Sample::1446063527::
 ::res://res/tilemaps::1445459468
 iso-64x64-outside.png::ImageTexture::1440969130::
 iso-64x64-outside_.png::ImageTexture::1442779488::
@@ -68,12 +71,12 @@ map.png::ImageTexture::1432475630::
 map.xml::::1432482428::
 mininicular.png::ImageTexture::1443560759::
 mininicular_gray.png::ImageTexture::1443304965::
-::res://scenes::1445777625
+::res://scenes::1446064358
 fish.scn::PackedScene::1436031992::
 hdr.scn::PackedScene::1440845182::
-helldehog.scn::PackedScene::1445461766::
+helldehog.scn::PackedScene::1446064358::
 hiene.scn::PackedScene::1438086785::
-main.xml::PackedScene::1445777625::
+main.xml::PackedScene::1445891960::
 menu.scn::PackedScene::1445460059::
 nps.scn::PackedScene::1440243015::
 rat.scn::PackedScene::1440352407::
