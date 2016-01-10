@@ -1,9 +1,8 @@
 extends Node2D
 
-
 # load game data
 # load scenes 
-# load first 
+# load first
 var config_file = 'res://game.json'
 var main_scene  = 'res://scenes/main.xml'
 var MENU_GROUP  = 'menu_group'   
@@ -23,9 +22,6 @@ var quest_vars = []
 var once = false
 
 
-
-
-
 #func show_message(msg):	
 #	if not alert:
 #		alert = Label.new()
@@ -33,8 +29,6 @@ var once = false
 #		alert.set_pos(Vector2(300,500))
 #		add_child(alert)
 #	return
-
-
 
 
 #func load_config(config_file_name):
@@ -142,18 +136,16 @@ func process_script_scenes():
 func level1():
 	var b = get_node("Level1")
 	b.load_scene()
-																					
+
+																													
 func _ready():
 	get_node('exit').connect('pressed',self,'_on_exit_pressed')
 	get_node('start').connect('pressed',self,'_on_start_pressed')	
 	get_node('Level1').connect('pressed',self,'level1')	
 	load_script_scenes()
 	set_process(true)
-	
-	
 
 func _process(delta):
 	if not player:
-		#print("not player")
 		return false
 	process_script_scenes()
