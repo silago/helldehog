@@ -1,10 +1,45 @@
 extends Node
 
+var quests = []
+var quest_objects = {}
+var quest_vars = {}
+var quest_requirements = {
+	'quest_1':['hedge2','gui']
+}
+
+func add_to_quest_objects(name,obj):
+	quest_objects[name]=obj
+	for q in quest_requirements:
+		if name in quest_requirements[q]:
+			quest_requirements[q].remove(quest_requirements[q].find(name))
+		if quest_requirements[q].size() == 0:
+			call(q+'_prepare')
+			quest_requirements.erase(q)
+		
+func quest_1():
+	quest_objects['gui'].say('Hello')
+	quest_vars['QuestGot']=true
+	pass
+
+func quest_1_prepare():
+	quest_objects['hedge2'].connect('HedgeCollided',self,'quest_1')
+	pass
+
+#func prepare_quests():
+#	quest_1_prepare()
+#	pass	
+
+
+#func send_signal(sig):
+#	for listener in listeners:
+#		if (listener.has_method('get_event')):
+#			pass
 
 func some_function():
 	print("some function called")
 
 func _ready():
+	#prepare_quests()
 	print("globals ready")
 	
 func get_json_file(path):
