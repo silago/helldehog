@@ -2,27 +2,48 @@ extends Node
 
 var quests = []
 var quest_objects = {}
-var quest_vars = {}
+var quest_vars = {'butterfliesLeftToCatch':1}
 var quest_requirements = {
-	'quest_1':['hedge2','gui']
+	'quest_1':['helldehog','ыгзукрщпsuperhog','noway','gui',
+		'ыгзукрщпbutterfly1'
+	]
 }
 
 func add_to_quest_objects(name,obj):
-	quest_objects[name]=obj
+	quest_objects[str(name)]=obj
 	for q in quest_requirements:
 		if name in quest_requirements[q]:
 			quest_requirements[q].remove(quest_requirements[q].find(name))
 		if quest_requirements[q].size() == 0:
 			call(q+'_prepare')
 			quest_requirements.erase(q)
+	print(quest_requirements)
 		
-func quest_1():
-	quest_objects['gui'].say('Hello')
-	quest_vars['QuestGot']=true
+func quest_1(ev,v = false):
+	print(ev)
+	print(v)
+	if (ev == 'nowayCollided' and not quest_vars['quest_1_got']):
+		quest_objects['gui'].say('NoWay')
+		var player = quest_objects['helldehog']
+		var lv = player.get_linear_velocity()
+		lv.x = lv.x*-1
+		lv.y = lv.y*-1
+		player.set_linear_velocity(lv)
+	if (ev == 'superhogCollided'):
+		quest_objects['gui'].say('Hello')
+		quest_vars['quest_1_got']=true
+	if (ev == 'butterflyCollided' and quest_vars['quest_1_got']):
+		quest_vars['butterfliesLeftToCatch']-=1
+		if quest_vars['butterfliesLeftToCatch']==0:
+			quest_objects[v].catched()
+			quest_objects['gui'].say('good')
 	pass
 
 func quest_1_prepare():
-	quest_objects['hedge2'].connect('HedgeCollided',self,'quest_1')
+	quest_vars['quest_1_got']=false
+	quest_objects['ыгзукрщпsuperhog'].connect('superhogCollided',self,'quest_1',['superhogCollided'])
+	quest_objects['noway'].connect('nowayCollided',self,'quest_1',['nowayCollided'])
+	quest_objects['ыгзукрщпbutterfly1'].connect('ыгзукрщпbutterflyCollided',self,'quest_1',['butterflyCollided','ыгзукрщпbutterfly1'])
 	pass
 
 #func prepare_quests():
