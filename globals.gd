@@ -5,15 +5,18 @@ var quest_objects = {}
 var quest_vars = {'butterfliesLeftToCatch':1}
 var quest_requirements = {
 	'quest_1':['helldehog','ыгзукрщпsuperhog','noway','gui',
-		'ыгзукрщпbutterfly1'
+		'butterfly1'
 	]
 }
 
 func add_to_quest_objects(name,obj):
+	print(name)
 	quest_objects[str(name)]=obj
 	for q in quest_requirements:
 		if name in quest_requirements[q]:
 			quest_requirements[q].remove(quest_requirements[q].find(name))
+		else:
+			print(name+" not found")
 		if quest_requirements[q].size() == 0:
 			call(q+'_prepare')
 			quest_requirements.erase(q)
@@ -36,14 +39,15 @@ func quest_1(ev,v = false):
 		quest_vars['butterfliesLeftToCatch']-=1
 		if quest_vars['butterfliesLeftToCatch']==0:
 			quest_objects[v].catched()
-			quest_objects['gui'].say('good')
+			quest_objects['gui'].say('You here a scarefull sound!!')
+			quest_objects['helldehog'].apply_impulse(Vector2(100,-300),Vector2(250,-250))
 	pass
 
 func quest_1_prepare():
 	quest_vars['quest_1_got']=false
 	quest_objects['ыгзукрщпsuperhog'].connect('superhogCollided',self,'quest_1',['superhogCollided'])
 	quest_objects['noway'].connect('nowayCollided',self,'quest_1',['nowayCollided'])
-	quest_objects['ыгзукрщпbutterfly1'].connect('ыгзукрщпbutterflyCollided',self,'quest_1',['butterflyCollided','ыгзукрщпbutterfly1'])
+	quest_objects['butterfly1'].connect('ыгзукрщпbutterflyCollided',self,'quest_1',['butterflyCollided','butterfly1'])
 	pass
 
 #func prepare_quests():
