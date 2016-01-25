@@ -23,25 +23,26 @@ func add_to_quest_objects(name,obj):
 	print(quest_requirements)
 		
 func quest_1(ev,v = false):
-	print(ev)
-	print(v)
+	#print(ev)
+	#print(v)
 	if (ev == 'nowayCollided' and not quest_vars['quest_1_got']):
-		quest_objects['gui'].say('NoWay')
+		quest_objects['gui'].say('I must talk to Hogge first.')
 		var player = quest_objects['helldehog']
 		var lv = player.get_linear_velocity()
 		lv.x = lv.x*-1
 		lv.y = lv.y*-1
 		player.set_linear_velocity(lv)
 	if (ev == 'superhogCollided'):
-		quest_objects['gui'].say('Hello')
+		quest_objects['gui'].say('Hello. Here is a wolf in the forest. Go and catch some butterflies and we shall go away from here.')
 		quest_vars['quest_1_got']=true
+		quest_objects['noway'].queue_free()
 	if (ev == 'butterflyCollided' and quest_vars['quest_1_got']):
 		quest_vars['butterfliesLeftToCatch']-=1
 		if quest_vars['butterfliesLeftToCatch']==0:
 			quest_objects[v].catched()
-			quest_objects['gui'].say('You here a scarefull sound!!')
-			quest_objects['helldehog'].apply_impulse(Vector2(100,-300),Vector2(250,-250))
-	pass
+			quest_objects['gui'].say('I\'m a good hog. I\'ve catched all I need. ..... AAAAAAAAAAA!!!!!!!')
+			quest_objects['helldehog'].apply_impulse(Vector2(100,-20),Vector2(250,-50))
+			quest_objects['ыгзукрщпsuperhog'].queue_free()
 
 func quest_1_prepare():
 	quest_vars['quest_1_got']=false
