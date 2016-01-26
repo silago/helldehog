@@ -35,7 +35,9 @@ func quest_1(ev,v = false):
 	if (ev == 'superhogCollided'):
 		quest_objects['gui'].say('Hello. Here is a wolf in the forest. Go and catch some butterflies and we shall go away from here.')
 		quest_vars['quest_1_got']=true
-		quest_objects['noway'].queue_free()
+		if (quest_objects.has('noway')):
+			quest_objects['noway'].queue_free()
+			quest_objects.erase('noway')
 	if (ev == 'butterflyCollided' and quest_vars['quest_1_got']):
 		quest_vars['butterfliesLeftToCatch']-=1
 		if quest_vars['butterfliesLeftToCatch']==0:
