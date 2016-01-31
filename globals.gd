@@ -3,7 +3,7 @@ extends Node
 var quests = []
 var quest_objects = {}
 var quest_vars = {'butterfliesLeftToCatch':1}
-var quest_requirements = {
+var quest_requirements = {	
 	'quest_1':['helldehog','ыгзукрщпsuperhog','noway','gui',
 		'butterfly1'
 	]
@@ -23,8 +23,6 @@ func add_to_quest_objects(name,obj):
 	print(quest_requirements)
 		
 func quest_1(ev,v = false):
-	#print(ev)
-	#print(v)
 	if (ev == 'nowayCollided' and not quest_vars['quest_1_got']):
 		quest_objects['gui'].say('I must talk to Hogge first.')
 		var player = quest_objects['helldehog']
@@ -52,6 +50,8 @@ func quest_1_prepare():
 	quest_objects['noway'].connect('nowayCollided',self,'quest_1',['nowayCollided'])
 	quest_objects['butterfly1'].connect('ыгзукрщпbutterflyCollided',self,'quest_1',['butterflyCollided','butterfly1'])
 	pass
+	
+
 
 #func prepare_quests():
 #	quest_1_prepare()
