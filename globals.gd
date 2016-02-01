@@ -2,19 +2,104 @@ extends Node
 
 var quests = []
 var quest_objects = {}
-var quest_vars = {'butterfliesLeftToCatch':1}
-var quest_requirements = {	
-	'quest_1':['helldehog','ыгзукрщпsuperhog','noway','gui',
-		'butterfly1'
-	]
+var quest_vars = {
+	'BUTTERLYCATCHED':0,
+	'butterfliesLeftToCatch':1
 }
+
+var methods = {}
+
+
+var quest_requirements = {	
+	'quest_1':	{
+		'helldehog':[],
+		'ыгзукрщпsuperhog' :['PlayerSuperhogCollided'],
+		'noway':['PlayerRestrictorCollided'],
+		'gui':[],
+		'butterfly1':['PlayerButterflyCollided']
+	}
+}
+
+
+
+
+var    quest_data =  {
+	    'PlayerRestrictorCollided': {
+            'TALK_TO_SUPERHOG':[
+                ['SAY',['hello']],
+            ]
+        },
+        'PlayerSuperhogCollided': {
+            'TALK_TO_SUPERHOG':[
+                ['SAY',['catch']],
+                ['REMOVE',['noway']],
+                ['SET_STATE','CATCH_BUTTERFLIES']
+            ]
+        },
+        'PlayerButterflyCollided':{
+            'CATCH_BUTTERFLIES':[
+                ['INC_VAR',['BUTTERLYCATCHED']],
+                ['EMIT_SIGNAL_IF_EQUAL',['BUTTERLYCATCHED','5','AllbutterfliesCatched']]
+            ]
+        },
+		'AllbutterfliesCatched':{
+			'CATCH_BUTTERFLIES':[
+			    ['SET_STATE',['ALLCATCHED']],
+				['PUSH_QUERY',['helldehog','RUN_JUMP_RIGHT']]
+			]
+		},
+		'PlayerFallerCollided':{
+			'ALLCATCHED':[
+				['SET_STATE',['FALLED']],
+				['CLEAR_QUERY',['helldehog','RUN_JUMP_RIGHT']]
+			]
+		}
+    }
+var STATE = 'TALK_TO_SUPERHOG';
+func signal_resolver(sig_name):
+		print('resolver')
+		if (quest_data.has(sig_name) and quest_data[sig_name].has(STATE)):
+			for a in quest_data[sig_name][STATE]:
+				var action 		= a[0]
+				var action_data = a[1]
+				if (action == 'SAY'):
+					quest_objects['gui'].say(action_data[0])
+				if (action == 'KICK'):
+					pass	
+				if (action == 'REMOVE'):
+					quest_objects[action_data[0]].queue_free()
+				if (action == 'SET_STATE'):
+					STATE = action_data[0]
+				if (action == 'INC_VAR'):
+					quest_vars[action_data[0]]+=1
+				if (action == 'EMIT_SIGNAL_IF_EQUAL'):
+					if (quest_vars[action_data[0]]==action_data[1]):
+						emit_signal(action_data[2])
+				if (action == 'PUSH_QUERY'):
+					quest_objects[action_data[0]].append_query(action_data[1])
+				if (action == 'CLEAR_QUERY'):
+					quest_objects[action_data[0]].clear_query()
+
+
+
+
 
 func add_to_quest_objects(name,obj):
 	print(name)
 	quest_objects[str(name)]=obj
 	for q in quest_requirements:
+		#print(q)
+		#print(quest_requirements[q])
+		#print('_')
 		if name in quest_requirements[q]:
-			quest_requirements[q].remove(quest_requirements[q].find(name))
+			print(quest_requirements[q])
+			print(name)
+			print('#>>>')
+			for s in quest_requirements[q][name]:
+				print("connect")
+				print(s)
+				obj.connect(s,self,'signal_resolver',[s])
+			quest_requirements[q].erase(name)
 		else:
 			print(name+" not found")
 		if quest_requirements[q].size() == 0:
@@ -23,6 +108,7 @@ func add_to_quest_objects(name,obj):
 	print(quest_requirements)
 		
 func quest_1(ev,v = false):
+	return
 	if (ev == 'nowayCollided' and not quest_vars['quest_1_got']):
 		quest_objects['gui'].say('I must talk to Hogge first.')
 		var player = quest_objects['helldehog']
@@ -45,10 +131,10 @@ func quest_1(ev,v = false):
 			quest_objects['ыгзукрщпsuperhog'].queue_free()
 
 func quest_1_prepare():
-	quest_vars['quest_1_got']=false
-	quest_objects['ыгзукрщпsuperhog'].connect('superhogCollided',self,'quest_1',['superhogCollided'])
-	quest_objects['noway'].connect('nowayCollided',self,'quest_1',['nowayCollided'])
-	quest_objects['butterfly1'].connect('ыгзукрщпbutterflyCollided',self,'quest_1',['butterflyCollided','butterfly1'])
+	#quest_vars['quest_1_got']=false
+	#quest_objects['ыгзукрщпsuperhog'].connect('superhogCollided',self,'quest_1',['superhogCollided'])
+	#quest_objects['noway'].connect('nowayCollided',self,'quest_1',['nowayCollided'])
+	#quest_objects['butterfly1'].connect('ыгзукрщпbutterflyCollided',self,'quest_1',['butterflyCollided','butterfly1'])
 	pass
 	
 
@@ -81,7 +167,17 @@ func get_json_file(path):
 	pass
 	return d
 	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 func process_script_scenes(script_scenes,script_scenes_vars):
+	return
 	for i in script_scenes:
 		var sc = script_scenes[i]
 		var condition_result = true	
