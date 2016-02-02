@@ -4,7 +4,7 @@ var quests = []
 var quest_objects = {}
 var quest_vars = {
 	'BUTTERLYCATCHED':0,
-	'butterfliesLeftToCatch':1
+	'BUTTERLYTOCATCH':1
 }
 
 var methods = {}
@@ -14,14 +14,14 @@ var quest_requirements = {
 	'quest_1':	{
 		'helldehog':[],
 		'ыгзукрщпsuperhog' :['PlayerSuperhogCollided'],
-		'noway':['PlayerRestrictorCollided'],
+		'restrictor':['PlayerRestrictorCollided'],
 		'gui':[],
 		'butterfly1':['PlayerButterflyCollided']
 	}
 }
 
 
-
+const SIGNAL_CALLER = 0
 
 var    quest_data =  {
 	    'PlayerRestrictorCollided': {
@@ -32,14 +32,15 @@ var    quest_data =  {
         'PlayerSuperhogCollided': {
             'TALK_TO_SUPERHOG':[
                 ['SAY',['catch']],
-                ['REMOVE',['noway']],
-                ['SET_STATE','CATCH_BUTTERFLIES']
+                ['REMOVE',['restrictor']],
+                ['SET_STATE',['CATCH_BUTTERFLIES']]
             ]
         },
         'PlayerButterflyCollided':{
             'CATCH_BUTTERFLIES':[
                 ['INC_VAR',['BUTTERLYCATCHED']],
-                ['EMIT_SIGNAL_IF_EQUAL',['BUTTERLYCATCHED','5','AllbutterfliesCatched']]
+                ['REMOVE',[]],
+				['EMIT_SIGNAL_IF_EQUAL',['BUTTERLYCATCHED',1,'AllbutterfliesCatched']]
             ]
         },
 		'AllbutterfliesCatched':{
@@ -56,8 +57,10 @@ var    quest_data =  {
 		}
     }
 var STATE = 'TALK_TO_SUPERHOG';
-func signal_resolver(sig_name):
-		print('resolver')
+func signal_resolver(sig_name,caller = null):
+		print(STATE)
+		print(caller)
+		#print('resolver')
 		if (quest_data.has(sig_name) and quest_data[sig_name].has(STATE)):
 			for a in quest_data[sig_name][STATE]:
 				var action 		= a[0]
@@ -67,14 +70,20 @@ func signal_resolver(sig_name):
 				if (action == 'KICK'):
 					pass	
 				if (action == 'REMOVE'):
-					quest_objects[action_data[0]].queue_free()
+					print('remove')
+					if (action_data.size()==0):
+						print('1')
+						caller.queue_free()	
+					else:
+						print('2')
+						quest_objects[action_data[0]].queue_free()
 				if (action == 'SET_STATE'):
 					STATE = action_data[0]
 				if (action == 'INC_VAR'):
 					quest_vars[action_data[0]]+=1
 				if (action == 'EMIT_SIGNAL_IF_EQUAL'):
 					if (quest_vars[action_data[0]]==action_data[1]):
-						emit_signal(action_data[2])
+						signal_resolver(action_data[2])
 				if (action == 'PUSH_QUERY'):
 					quest_objects[action_data[0]].append_query(action_data[1])
 				if (action == 'CLEAR_QUERY'):
@@ -85,27 +94,19 @@ func signal_resolver(sig_name):
 
 
 func add_to_quest_objects(name,obj):
-	print(name)
+	#print(name)
 	quest_objects[str(name)]=obj
 	for q in quest_requirements:
-		#print(q)
-		#print(quest_requirements[q])
-		#print('_')
 		if name in quest_requirements[q]:
-			print(quest_requirements[q])
-			print(name)
-			print('#>>>')
 			for s in quest_requirements[q][name]:
-				print("connect")
-				print(s)
-				obj.connect(s,self,'signal_resolver',[s])
+				obj.connect(s,self,'signal_resolver')
 			quest_requirements[q].erase(name)
 		else:
 			print(name+" not found")
 		if quest_requirements[q].size() == 0:
 			call(q+'_prepare')
 			quest_requirements.erase(q)
-	print(quest_requirements)
+	#print(quest_requirements)
 		
 func quest_1(ev,v = false):
 	return
