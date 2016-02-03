@@ -16,7 +16,9 @@ var quest_requirements = {
 		'ыгзукрщпsuperhog' :['PlayerSuperhogCollided'],
 		'restrictor':['PlayerRestrictorCollided'],
 		'gui':[],
-		'butterfly1':['PlayerButterflyCollided']
+		'butterfly1':['PlayerButterflyCollided'],
+		'motherhog':['PlayerMotherhogCollided'],
+		'smallhog1':['PlayerSmallhogCOllided']
 	}
 }
 
@@ -31,17 +33,14 @@ var    quest_data =  {
         },
 		'PlayerMotherhogCollided': {
 			'CATCH_HOGS':[
-				['SAY',['find my hogs']],
-				['SHOW',['smallhog1']],
-				['SHOW',['smallhog2']],
-				['SHOW',['smallhog3']]
+				['SAY',['find my hogs']]
 			]
 		},
         'PlayerSuperhogCollided': {
             'TALK_TO_SUPERHOG':[
                 ['SAY',['catch']],
                 ['REMOVE',['restrictor']],
-                ['SET_STATE',['CATCH_BUTTERFLIES']]
+                ['SET_STATE',['CATCH_HOGS']]
             ]
         },
         'PlayerButterflyCollided':{
@@ -67,7 +66,7 @@ var    quest_data =  {
 var STATE = 'TALK_TO_SUPERHOG';
 func signal_resolver(sig_name,caller = null):
 		print(STATE)
-		print(caller)
+		print(sig_name)
 		#print('resolver')
 		if (quest_data.has(sig_name) and quest_data[sig_name].has(STATE)):
 			for a in quest_data[sig_name][STATE]:
@@ -84,6 +83,7 @@ func signal_resolver(sig_name,caller = null):
 						quest_objects[action_data[0]].queue_free()
 				if (action == 'SET_STATE'):
 					STATE = action_data[0]
+					print(STATE)
 				if (action == 'INC_VAR'):
 					quest_vars[action_data[0]]+=1
 				if (action == 'EMIT_SIGNAL_IF_EQUAL'):
@@ -97,10 +97,6 @@ func signal_resolver(sig_name,caller = null):
 					quest_objects[action_data[0]].show()
 				if (action == 'HIDE'):
 					quest_objects[action_data[0]].show()
-				
-
-
-
 
 
 func add_to_quest_objects(name,obj):
@@ -109,6 +105,7 @@ func add_to_quest_objects(name,obj):
 	for q in quest_requirements:
 		if name in quest_requirements[q]:
 			for s in quest_requirements[q][name]:
+				print(s)
 				obj.connect(s,self,'signal_resolver')
 			quest_requirements[q].erase(name)
 		else:
