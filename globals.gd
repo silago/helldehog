@@ -29,6 +29,14 @@ var    quest_data =  {
                 ['SAY',['hello']],
             ]
         },
+		'PlayerMotherhogCollided': {
+			'CATCH_HOGS':[
+				['SAY',['find my hogs']],
+				['SHOW',['smallhog1']],
+				['SHOW',['smallhog2']],
+				['SHOW',['smallhog3']]
+			]
+		},
         'PlayerSuperhogCollided': {
             'TALK_TO_SUPERHOG':[
                 ['SAY',['catch']],
@@ -70,12 +78,9 @@ func signal_resolver(sig_name,caller = null):
 				if (action == 'KICK'):
 					pass	
 				if (action == 'REMOVE'):
-					print('remove')
 					if (action_data.size()==0):
-						print('1')
 						caller.queue_free()	
 					else:
-						print('2')
 						quest_objects[action_data[0]].queue_free()
 				if (action == 'SET_STATE'):
 					STATE = action_data[0]
@@ -88,6 +93,11 @@ func signal_resolver(sig_name,caller = null):
 					quest_objects[action_data[0]].append_query(action_data[1])
 				if (action == 'CLEAR_QUERY'):
 					quest_objects[action_data[0]].clear_query()
+				if (action == 'SHOW'):
+					quest_objects[action_data[0]].show()
+				if (action == 'HIDE'):
+					quest_objects[action_data[0]].show()
+				
 
 
 
