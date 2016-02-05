@@ -36,6 +36,28 @@ var    quest_data =  {
 				['SAY',['find my hogs']]
 			]
 		},
+		'PlayerSmallhogCollided': {
+			'CATCH_HOGS':[
+				['SAY',['GetStick']]
+			]
+		},
+		'PlayerBranchCollided': {
+			'CATCH_HOGS':[
+				['ADD_ITEM',['BRANCH']],
+				['SET_STATE',['HAS_BRANCH']],
+				['HIDE',['BRANCH']]
+			]
+		},
+		'PlayerSmallHogCollidedSpacePressed': {
+			'HAS_BRANCH':[
+				['SHOW',['BRANCH']],
+				['GET_VAR',['helldehog','pos']],
+				['SET_VAR',['branch','pos'],
+				['GET_VAR',['smallhog1','pos']],
+				['GET_COS',[]],
+				['CUSTOM_ACTION',[]]
+			]
+		},
         'PlayerSuperhogCollided': {
             'TALK_TO_SUPERHOG':[
                 ['SAY',['catch']],
