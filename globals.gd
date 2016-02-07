@@ -9,6 +9,8 @@ var quest_vars = {
 
 var methods = {}
 
+var stack = []
+
 
 var quest_requirements = {	
 	'quest_1':	{
@@ -18,7 +20,8 @@ var quest_requirements = {
 		'gui':[],
 		'butterfly1':['PlayerButterflyCollided'],
 		'motherhog':['PlayerMotherhogCollided'],
-		'smallhog1':['PlayerSmallhogCOllided']
+		'smallhog1':['PlayerSmallHogCollidedSpacePressed'],
+		'branch':['PlayerBranchCollidedSpacePressed']
 	}
 }
 
@@ -41,21 +44,24 @@ var    quest_data =  {
 				['SAY',['GetStick']]
 			]
 		},
-		'PlayerBranchCollided': {
+		'PlayerBranchCollidedSpacePressed': {
 			'CATCH_HOGS':[
-				['ADD_ITEM',['BRANCH']],
-				['SET_STATE',['HAS_BRANCH']],
-				['HIDE',['BRANCH']]
+				['SAY',['GOT']],
+				['HIDE',['branch']],
+				['SET_STATE',['GOT_BRANCH']]
 			]
 		},
 		'PlayerSmallHogCollidedSpacePressed': {
-			'HAS_BRANCH':[
-				['SHOW',['BRANCH']],
-				['GET_VAR',['helldehog','pos']],
-				['SET_VAR',['branch','pos'],
-				['GET_VAR',['smallhog1','pos']],
-				['GET_COS',[]],
-				['CUSTOM_ACTION',[]]
+			'GOT_BRANCH':[
+				['GET_POS',['smallhog1']],
+				['SET_POS',['branch']],
+				['SET_ROT',['branch',40]],
+				['SHOW',['branch']],
+				#['GET_VAR',['helldehog','pos']],
+				#['SET_VAR',['branch','pos']],
+				#['GET_VAR',['smallhog1','pos']],
+				#['GET_COS',[]],
+				#['CUSTOM_ACTION',[]]
 			]
 		},
         'PlayerSuperhogCollided': {
@@ -118,7 +124,15 @@ func signal_resolver(sig_name,caller = null):
 				if (action == 'SHOW'):
 					quest_objects[action_data[0]].show()
 				if (action == 'HIDE'):
-					quest_objects[action_data[0]].show()
+					quest_objects[action_data[0]].hide()
+				if (action == 'SET_POS'):
+					print(stack[0])
+					quest_objects[action_data[0]].set_pos(stack[0])
+					#stack.erase(0)
+				if (action == 'GET_POS'):
+					stack.append(quest_objects[action_data[0]].get_pos())
+				if (action == 'SET_ROT'):
+					quest_objects[action_data[0]].set_rot(int(action_data[1]))
 
 
 func add_to_quest_objects(name,obj):
