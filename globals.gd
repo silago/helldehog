@@ -21,6 +21,7 @@ var quest_requirements = {
 		'butterfly1':['PlayerButterflyCollided'],
 		'motherhog':['PlayerMotherhogCollided'],
 		'smallhog1':['PlayerSmallHogCollidedSpacePressed'],
+		'smallhog2':['PlayerSmallHogCollided'],
 		'branch':['PlayerBranchCollidedSpacePressed']
 	}
 }
@@ -44,8 +45,14 @@ var    quest_data =  {
 				['SAY',['GetStick']]
 			]
 		},
-		'PlayerBranchCollidedSpacePressed': {
+		'PlayerSmallHogCollided': {
 			'CATCH_HOGS':[
+				['SAY',['fefe']],
+				['SET_STATE',['FIND_BRANCH']]
+			]
+		},
+		'PlayerBranchCollidedSpacePressed': {
+			'FIND_BRANCH':[
 				['SAY',['GOT']],
 				['HIDE',['branch']],
 				['SET_STATE',['GOT_BRANCH']]
@@ -57,6 +64,7 @@ var    quest_data =  {
 				['SET_POS',['branch']],
 				['SET_ROT',['branch',40]],
 				['SHOW',['branch']],
+				['FADE',[]],
 				#['GET_VAR',['helldehog','pos']],
 				#['SET_VAR',['branch','pos']],
 				#['GET_VAR',['smallhog1','pos']],
@@ -126,14 +134,13 @@ func signal_resolver(sig_name,caller = null):
 				if (action == 'HIDE'):
 					quest_objects[action_data[0]].hide()
 				if (action == 'SET_POS'):
-					print(stack[0])
 					quest_objects[action_data[0]].set_pos(stack[0])
 					#stack.erase(0)
 				if (action == 'GET_POS'):
 					stack.append(quest_objects[action_data[0]].get_pos())
 				if (action == 'SET_ROT'):
 					quest_objects[action_data[0]].set_rot(int(action_data[1]))
-
+				
 
 func add_to_quest_objects(name,obj):
 	#print(name)
