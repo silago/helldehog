@@ -22,7 +22,9 @@ var quest_requirements = {
 		'motherhog':['PlayerMotherhogCollided'],
 		'smallhog1':['PlayerSmallHogCollidedSpacePressed'],
 		'smallhog2':['PlayerSmallHogCollided'],
-		'branch':['PlayerBranchCollidedSpacePressed']
+		'branch':['PlayerBranchCollidedSpacePressed'],
+		'oldhog':['PlayerOldhogCollided'],
+		'stick':['PlayerStickCollidedSpacePressed'],
 	}
 }
 
@@ -65,11 +67,27 @@ var    quest_data =  {
 				['SET_ROT',['branch',40]],
 				['SHOW',['branch']],
 				['FADE',[]],
+				['SET_STATE',['SMALLHOG_SAVED']],
 				#['GET_VAR',['helldehog','pos']],
 				#['SET_VAR',['branch','pos']],
 				#['GET_VAR',['smallhog1','pos']],
 				#['GET_COS',[]],
 				#['CUSTOM_ACTION',[]]
+			]
+		},
+		'PlayerOldhogCollided':{
+			'SMALLHOG_SAVED':[
+			   ['SAY',['catch']],
+               ['SET_STATE',['FIND_STICK']]
+			],
+			'FOUND_STICK':[
+			   ['SAY',['good']],
+			]
+		},
+		'PlayerStickCollidedSpacePressed':{
+			'FIND_STICK':[
+			   ['SET_STATE',['FOUND_STICK']],
+			   ['HIDE',['stick']],
 			]
 		},
         'PlayerSuperhogCollided': {
