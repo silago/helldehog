@@ -8,11 +8,16 @@ var quest_vars = {
 }
 
 var methods = {}
-
 var stack = []
+var current_scene = 'water_scene.json'
+var saved_position = [950,470]
 
 
-var quest_requirements = {	
+
+
+
+
+var quest_requirements = {
 	'quest_1':	{
 		'helldehog':[],
 		'ыгзукрщпsuperhog' :['PlayerSuperhogCollided'],
@@ -161,13 +166,13 @@ func signal_resolver(sig_name,caller = null):
 					quest_objects[action_data[0]].set_rot(int(action_data[1]))
 				if (action == 'SAVE'):
 					save_game()
-func save_game():
+func old_save_game():
 	pass
 	# objects to save:
 	#	1) game_state
 	#	2) current_map
 	#	3) checkpoint_id
-	var save = current_mape & game_state_id & checkpoint_id 
+	#var save = current_mape & game_state_id & checkpoint_id 
 
 func add_to_quest_objects(name,obj):
 	#print(name)
@@ -308,3 +313,42 @@ func process_script_scenes(script_scenes,script_scenes_vars):
 	
 func load_tiled_map():
 	pass
+	
+	
+	
+func save_game():
+	var savegame = File.new()
+	savegame.open("user://savegame.save", File.WRITE)
+	var savedata = {
+		"scene":current_scene,
+		"savepos":saved_position,
+		#"state":STATE,
+		"state":'SMALLHOG_SAVED',
+		"stack":stack
+		}
+	#var savenodes = get_tree().get_nodes_in_group("Persist")
+	#for i in savenodes:
+	#	var nodedata = i.save()
+	savegame.store_line(savedata.to_json())
+	savegame.close()
+	if !savegame.file_exists("user://savegame.save"):
+		print('failed to save file')
+		
+func load_game():
+	var savegame = File.new()
+	if !savegame.file_exists("user://savegame.save"):
+		return
+	var currentline = {} # dict.parse_json() requires a declared dict.
+	#savegame.open("user://savegame.save", File.READ)
+	var jj = get_json_file("user://savegame.save")
+	print("start")
+	print(jj)
+	print(jj.savepos)
+	print("______1")
+	quest_objects['helldehog'].set_pos(Vector2(jj.savepos[0],jj.savepos[1]))
+	STATE=jj.state
+	stack=jj.stack
+	quest_objects['helldehog'].get_parent().move()
+	print(quest_objects['helldehog'])
+	pass	
+	
