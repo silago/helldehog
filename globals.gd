@@ -128,6 +128,7 @@ func signal_resolver(sig_name,caller = null):
 				var action_data = a[1]
 				if (action == 'SAY'):
 					quest_objects['gui'].say(action_data[0])
+					quest_objects['gui'].set_quest(action_data[0])
 				if (action == 'KICK'):
 					pass	
 				if (action == 'REMOVE'):
@@ -158,7 +159,15 @@ func signal_resolver(sig_name,caller = null):
 					stack.append(quest_objects[action_data[0]].get_pos())
 				if (action == 'SET_ROT'):
 					quest_objects[action_data[0]].set_rot(int(action_data[1]))
-				
+				if (action == 'SAVE'):
+					save_game()
+func save_game():
+	pass
+	# objects to save:
+	#	1) game_state
+	#	2) current_map
+	#	3) checkpoint_id
+	var save = current_mape & game_state_id & checkpoint_id 
 
 func add_to_quest_objects(name,obj):
 	#print(name)
