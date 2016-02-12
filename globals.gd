@@ -14,7 +14,7 @@ var saved_position = [950,470]
 
 
 
-
+var main
 
 
 var quest_requirements = {
@@ -143,7 +143,7 @@ func signal_resolver(sig_name,caller = null):
 						quest_objects[action_data[0]].queue_free()
 				if (action == 'SET_STATE'):
 					STATE = action_data[0]
-					print(STATE)
+					quest_objects['gui'].set_quest(STATE)
 				if (action == 'INC_VAR'):
 					quest_vars[action_data[0]]+=1
 				if (action == 'EMIT_SIGNAL_IF_EQUAL'):
@@ -319,11 +319,15 @@ func load_tiled_map():
 func save_game():
 	var savegame = File.new()
 	savegame.open("user://savegame.save", File.WRITE)
+	print(quest_objects['helldehog'].get_pos())
+	var pos = quest_objects['helldehog'].get_pos()
+	
 	var savedata = {
 		"scene":current_scene,
-		"savepos":saved_position,
+		"x": pos.x,
+		"y": pos.y,
 		#"state":STATE,
-		"state":'SMALLHOG_SAVED',
+		"state":STATE,
 		"stack":stack
 		}
 	#var savenodes = get_tree().get_nodes_in_group("Persist")
@@ -337,18 +341,26 @@ func save_game():
 func load_game():
 	var savegame = File.new()
 	if !savegame.file_exists("user://savegame.save"):
+		print('no savefile found')
 		return
 	var currentline = {} # dict.parse_json() requires a declared dict.
 	#savegame.open("user://savegame.save", File.READ)
 	var jj = get_json_file("user://savegame.save")
-	print("start")
-	print(jj)
-	print(jj.savepos)
-	print("______1")
-	quest_objects['helldehog'].set_pos(Vector2(jj.savepos[0],jj.savepos[1]))
+	#quest_objects['helldehog'].set_pos(Vector2(jj.savepos[0],jj.savepos[1]))
 	STATE=jj.state
 	stack=jj.stack
-	quest_objects['helldehog'].get_parent().move()
-	print(quest_objects['helldehog'])
+	quest_objects['helldehog'].set_name('_helldehog')
+	quest_objects['helldehog'].queue_free()
+	var hoge = load("res://scenes/helldehog.scn")
+	var player = hoge.instance()
+	var x = jj.x
+	var y = jj.y
+	player.set_pos(Vector2(x,y))
+	main.add_child(player)
+	
+	quest_objects['helldehog']=player
+	quest_objects['gui'].set_quest(STATE)
+	player.set_name('Helldehog')
+	print('loaded')
 	pass	
 	
