@@ -11,10 +11,10 @@ var methods = {}
 var stack = []
 var current_scene = 'water_scene.json'
 var saved_position = [950,470]
+var key_chaims_sound
 
 
-
-var main
+var main 
 
 
 var quest_requirements = {
@@ -144,6 +144,7 @@ func signal_resolver(sig_name,caller = null):
 				if (action == 'SET_STATE'):
 					STATE = action_data[0]
 					quest_objects['gui'].set_quest(STATE)
+					quest_objects['helldehog'].get_node("chains").play()
 				if (action == 'INC_VAR'):
 					quest_vars[action_data[0]]+=1
 				if (action == 'EMIT_SIGNAL_IF_EQUAL'):
@@ -238,6 +239,12 @@ func some_function():
 func _ready():
 	#prepare_quests()
 	print("globals ready")
+	main = Node2D.new()
+	#key_chaims_sound = StreamPlayer.new()
+	#key_chaims_sound.set_stream(load("res/music/KeyChimes.ogg"))
+	#key_chaims_sound.play()
+	
+	#KeyChimes.ogg
 	
 func get_json_file(path):
 	var json = File.new()
@@ -249,71 +256,7 @@ func get_json_file(path):
 		return false
 	pass
 	return d
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-func process_script_scenes(script_scenes,script_scenes_vars):
-	return
-	for i in script_scenes:
-		var sc = script_scenes[i]
-		var condition_result = true	
-		for cond in sc["conditions"]:
-			if condition_result == false:
-				break
-			if cond == "varsSet":
-				for c in sc["conditions"][cond]:
-					#print(script_scenes_vars)
-					if (sc["conditions"][cond][c]==false):
-						if (script_scenes_vars.has(c)) and script_scenes_vars[c]!=sc["conditions"][cond][c]:
-							condition_result = false
-					else:
-						if (!script_scenes_vars.has(c)) or script_scenes_vars[c]!=sc["conditions"][cond][c]:
-							condition_result = false
-			elif cond == "distanceLT" or cond == "distanceGT":
-				for c in sc["conditions"][cond]:
-					var n1_name = c[0]
-					var n2_name = c[1]
-					var dis = c[2]
-					#print("tilemap/"+n1_name)
-					var n1 = get_node("tilemap/"+n1_name)
-					var n2 = get_node("tilemap/"+n2_name)
-					print(n1_name)
-					var n1_pos = n1.get_pos()
-					print(n2_name)
-					var n2_pos = n2.get_pos()
-					var dif = n1_pos-n2_pos
-					#print(dif.x)
-					#print(dis)
-					if cond == "distanceLT":
-						#print(str(dif.x)+" "+str(dif.y))
-						if  abs(dif.x)>dis or abs(dif.y)>dis:
-							condition_result = false
-							#print("condition lower failed for "+i)
-					if cond == "distanceGT":
-						if  abs(dif.x)<dis and abs(dif.y)<dis:
-							condition_result = false
-							#print("condition greater failed for "+i)
-		if (condition_result==true):
-			for n in sc["actions"]:
-				var action_node = get_node(n)
-				for a in sc["actions"][n]:
-					if a == "say":
-						get_node("tilemap/"+n).say(sc["actions"][n][a])
-					if a == "set_target":
-						get_node("tilemap/"+n).set_target(get_node("tilemap/"+sc["actions"][n][a]))
-			for n in sc["set"]:
-				script_scenes_vars[n] = sc["set"][n]
-	
-func load_tiled_map():
-	pass
-	
+
 	
 	
 func save_game():
@@ -323,7 +266,7 @@ func save_game():
 	var pos = quest_objects['helldehog'].get_pos()
 	
 	var savedata = {
-		"scene":current_scene,
+		"scene":"res://scenes/water_scene.scn",
 		"x": pos.x,
 		"y": pos.y,
 		#"state":STATE,
@@ -343,18 +286,22 @@ func load_game():
 	if !savegame.file_exists("user://savegame.save"):
 		print('no savefile found')
 		return
-	var currentline = {} # dict.parse_json() requires a declared dict.
-	#savegame.open("user://savegame.save", File.READ)
-	var jj = get_json_file("user://savegame.save")
-	#quest_objects['helldehog'].set_pos(Vector2(jj.savepos[0],jj.savepos[1]))
-	STATE=jj.state
-	stack=jj.stack
+	var currentline = {}
+	var savedata = get_json_file("user://savegame.save")
+
+	main.set_name('_')
+	main.queue_free()
+	main = load(savedata.scene).instance()
+	get_tree().get_root().add_child(main)
+
+	STATE=savedata.state
+	stack=savedata.stack
 	quest_objects['helldehog'].set_name('_helldehog')
 	quest_objects['helldehog'].queue_free()
 	var hoge = load("res://scenes/helldehog.scn")
 	var player = hoge.instance()
-	var x = jj.x
-	var y = jj.y
+	var x = savedata.x
+	var y = savedata.y
 	player.set_pos(Vector2(x,y))
 	main.add_child(player)
 	
@@ -363,4 +310,3 @@ func load_game():
 	player.set_name('Helldehog')
 	print('loaded')
 	pass	
-	
