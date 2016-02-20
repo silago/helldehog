@@ -39,7 +39,7 @@ const SIGNAL_CALLER = 0
 var    quest_data =  {
 	    'PlayerRestrictorCollided': {
             'TALK_TO_SUPERHOG':[
-                ['SAY',['hello']],
+                ['SAY',[tr('OLDHOG_1')]],
             ]
         },
 		'PlayerMotherhogCollided': {
