@@ -19,17 +19,19 @@ var main
 
 var quest_requirements = {
 	'quest_1':	{
-		'helldehog':[],
+		'helldehog':['PlayerReady'],
 		'ыгзукрщпsuperhog' :['PlayerSuperhogCollided'],
 		'restrictor':['PlayerRestrictorCollided'],
 		'gui':[],
 		'butterfly1':['PlayerButterflyCollided'],
 		'motherhog':['PlayerMotherhogCollided'],
-		'smallhog1':['PlayerSmallHogCollidedSpacePressed'],
 		'smallhog2':['PlayerSmallHogCollided'],
+		'smallhog3':['PlayerSmallHogCollided'],
 		'branch':['PlayerBranchCollidedSpacePressed'],
+		'branch_place':['PlayerSmallHogCollidedSpacePressed'],
 		'oldhog':['PlayerOldhogCollided'],
 		'stick':['PlayerStickCollidedSpacePressed'],
+		'pit':['зешPlayerPitEnter'],
 	}
 }
 
@@ -39,51 +41,83 @@ const SIGNAL_CALLER = 0
 var    quest_data =  {
 	    'PlayerRestrictorCollided': {
             'TALK_TO_SUPERHOG':[
-                ['SAY',[tr('OLDHOG_1')]],
             ]
         },
-		'PlayerMotherhogCollided': {
-			'CATCH_HOGS':[
-				['SAY',['find my hogs']]
+		'PlayerReady':{
+			'TALK_TO_SUPERHOG':[
+				['SAY',[tr('INTRO_1'),tr('INTRO_2'),tr('INTRO_3'),tr('INTRO_4')]],
 			]
 		},
-		'PlayerSmallhogCollided': {
+		'PlayerMotherhogCollided': {
 			'CATCH_HOGS':[
-				['SAY',['GetStick']]
+				['SET_STATE',['FIND_SMALL']],
+				['SAY',[tr('MOTHERHOG_1'),tr('MOTHERHOG_2')]]
+			],
+			'SMALLHOG_SAVED':[
+				['SAY',[tr('MOTHERHOG_4')]],
+				['SET_STATE',['ALL_SAVED']],
+				['SET_NPC_STATE',['smallhog2',0]],
+				['SET_NPC_STATE',['smallhog3',0]],
+				['SET_NPC_STATE',['smallhog4',0]],
+			],
+			'FIND_BRANCH':[
+				['SAY_ONCE',[tr('MOTHERHOG_3')]]
 			]
 		},
 		'PlayerSmallHogCollided': {
-			'CATCH_HOGS':[
-				['SAY',['fefe']],
+			'FIND_SMALL':[
+				['SAY',[tr('SMALLHOG_1'),tr('SMALLHOG_2'),tr('SMALLHOG_3')]],
 				['SET_STATE',['FIND_BRANCH']]
+			],
+			'BRANSH_PUSHED':[
+				['SAY',[tr('SMALLHOG_4'),tr('SMALLHOG_5')]],
+				['SET_STATE',['SMALLHOG_SAVED']]
+			],
+			'SMALLHOG_SAVED':[
+			]
+		},
+		'зешPlayerPitEnter':{
+			'TALK_TO_SUPERHOG':[
+				['GAMEOVER',['']],
+				['SAY',[tr('GAMEOVER_1')]],		
+			],
+			'CATCH_HOGS':[
+				['GAMEOVER',['']],
+				['SAY',[tr('GAMEOVER_1')]],		
+			],
+			'FIND_BRANCH':[
+				['GAMEOVER',['']],
+				['SAY',[tr('GAMEOVER_1')]],		
+			],
+			'FINDSMALL':[
+				['GAMEOVER',['']],
+				['SAY',[tr('GAMEOVER_1')]],		
 			]
 		},
 		'PlayerBranchCollidedSpacePressed': {
 			'FIND_BRANCH':[
-				['SAY',['GOT']],
 				['HIDE',['branch']],
 				['SET_STATE',['GOT_BRANCH']]
 			]
 		},
 		'PlayerSmallHogCollidedSpacePressed': {
 			'GOT_BRANCH':[
-				['GET_POS',['smallhog1']],
+				['GET_POS',['smallhog4']],
 				['SET_POS',['branch']],
-				['SET_ROT',['branch',40]],
+				['SET_ROT',['branch',-0.4]],
 				['SHOW',['branch']],
-				['FADE',[]],
-				['SET_STATE',['SMALLHOG_SAVED']],
-				#['GET_VAR',['helldehog','pos']],
-				#['SET_VAR',['branch','pos']],
-				#['GET_VAR',['smallhog1','pos']],
-				#['GET_COS',[]],
-				#['CUSTOM_ACTION',[]]
+				['SET_STATE',['BRANSH_PUSHED']],
+				['SET_NPC_STATE',['smallhog2',1]],
+				['SET_NPC_STATE',['smallhog3',1]],
+				['SET_NPC_STATE',['smallhog4',1]],
 			]
 		},
 		'PlayerOldhogCollided':{
 			'SMALLHOG_SAVED':[
-			   ['SAY',['catch']],
-               ['SET_STATE',['FIND_STICK']]
+			   ['SAY',[
+					tr('OLDHOG_1')
+					]],
+			   ['SET_STATE',['FIND_STICK']]
 			],
 			'FOUND_STICK':[
 			   ['SAY',['good']],
@@ -96,8 +130,22 @@ var    quest_data =  {
 			]
 		},
         'PlayerSuperhogCollided': {
+			'ALL_SAVED':[
+			  ['SAY',[
+					tr('OLDHOG_6'),
+					tr('OLDHOG_7'),
+					tr('OLDHOG_8'),
+					]
+				]
+			],
             'TALK_TO_SUPERHOG':[
-                ['SAY',['catch']],
+                ['SAY',[
+					tr('OLDHOG_1'),
+					tr('OLDHOG_2'),
+					tr('OLDHOG_3'),
+					tr('OLDHOG_4')
+					]
+				],
                 ['REMOVE',['restrictor']],
                 ['SET_STATE',['CATCH_HOGS']]
             ]
@@ -124,6 +172,7 @@ var    quest_data =  {
     }
 var STATE = 'TALK_TO_SUPERHOG';
 func signal_resolver(sig_name,caller = null):
+		print('got signal')
 		print(STATE)
 		print(sig_name)
 		#print('resolver')
@@ -131,9 +180,12 @@ func signal_resolver(sig_name,caller = null):
 			for a in quest_data[sig_name][STATE]:
 				var action 		= a[0]
 				var action_data = a[1]
+				if (action == 'SAY_ONCE'):
+					quest_objects['gui'].say(action_data)
+					quest_data[sig_name][STATE].remove(quest_data[sig_name][STATE].find(a))
 				if (action == 'SAY'):
-					quest_objects['gui'].say(action_data[0])
-					quest_objects['gui'].set_quest(action_data[0])
+					quest_objects['gui'].say(action_data)
+					#quest_objects['gui'].set_quest(action_data)
 				if (action == 'KICK'):
 					pass	
 				if (action == 'REMOVE'):
@@ -141,6 +193,8 @@ func signal_resolver(sig_name,caller = null):
 						caller.queue_free()	
 					else:
 						quest_objects[action_data[0]].queue_free()
+				if (action == 'GAMEOVER'):
+					quest_objects['helldehog'].move_to_start()
 				if (action == 'SET_STATE'):
 					STATE = action_data[0]
 					quest_objects['gui'].set_quest(STATE)
@@ -164,9 +218,11 @@ func signal_resolver(sig_name,caller = null):
 				if (action == 'GET_POS'):
 					stack.append(quest_objects[action_data[0]].get_pos())
 				if (action == 'SET_ROT'):
-					quest_objects[action_data[0]].set_rot(int(action_data[1]))
+					quest_objects[action_data[0]].set_rot((action_data[1]))
 				if (action == 'SAVE'):
 					save_game()
+				if (action == 'SET_NPC_STATE'):
+					quest_objects[action_data[0]].set_state(int(action_data[1]))
 func old_save_game():
 	pass
 	# objects to save:
@@ -181,6 +237,7 @@ func add_to_quest_objects(name,obj):
 	for q in quest_requirements:
 		if name in quest_requirements[q]:
 			for s in quest_requirements[q][name]:
+				print('connect')
 				print(s)
 				obj.connect(s,self,'signal_resolver')
 			quest_requirements[q].erase(name)
@@ -310,3 +367,6 @@ func load_game():
 	player.set_name('Helldehog')
 	print('loaded')
 	pass	
+
+func get_player():
+	return quest_objects['helldehog']
