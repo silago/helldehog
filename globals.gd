@@ -12,16 +12,14 @@ var stack = []
 var current_scene = 'water_scene.json'
 var saved_position = [950,470]
 var key_chaims_sound
-
-
+var waiting_to_change = false
 var main 
-
+var next_scene
 
 var quest_requirements = {
 	'quest_1':	{
 		'helldehog':['PlayerReady'],
 		'ыгзукрщпsuperhog' :['PlayerSuperhogCollided'],
-		'restrictor':['PlayerRestrictorCollided'],
 		'gui':[],
 		'butterfly1':['PlayerButterflyCollided'],
 		'motherhog':['PlayerMotherhogCollided'],
@@ -39,10 +37,6 @@ var quest_requirements = {
 const SIGNAL_CALLER = 0
 
 var    quest_data =  {
-	    'PlayerRestrictorCollided': {
-            'TALK_TO_SUPERHOG':[
-            ]
-        },
 		'PlayerReady':{
 			'TALK_TO_SUPERHOG':[
 				['SAY',[tr('INTRO_1'),tr('INTRO_2'),tr('INTRO_3'),tr('INTRO_4')]],
@@ -78,19 +72,19 @@ var    quest_data =  {
 		},
 		'зешPlayerPitEnter':{
 			'TALK_TO_SUPERHOG':[
-				['GAMEOVER',['']],
-				['SAY',[tr('GAMEOVER_1')]],		
+				['GAMEOVER_FAIL',['']],
+				['SAY',[tr('GAMEOVER_1')]],
 			],
 			'CATCH_HOGS':[
-				['GAMEOVER',['']],
+				['GAMEOVER_FAIL',['']],
 				['SAY',[tr('GAMEOVER_1')]],		
 			],
 			'FIND_BRANCH':[
-				['GAMEOVER',['']],
+				['GAMEOVER_FAIL',['']],
 				['SAY',[tr('GAMEOVER_1')]],		
 			],
 			'FINDSMALL':[
-				['GAMEOVER',['']],
+				['GAMEOVER_FAIL',['']],
 				['SAY',[tr('GAMEOVER_1')]],		
 			]
 		},
@@ -136,7 +130,8 @@ var    quest_data =  {
 					tr('OLDHOG_7'),
 					tr('OLDHOG_8'),
 					]
-				]
+				],
+				['GAMEOVER_WIN',['']],
 			],
             'TALK_TO_SUPERHOG':[
                 ['SAY',[
@@ -146,8 +141,7 @@ var    quest_data =  {
 					tr('OLDHOG_4')
 					]
 				],
-                ['REMOVE',['restrictor']],
-                ['SET_STATE',['CATCH_HOGS']]
+                ['SET_STATE',['CATCH_HOGS']],
             ]
         },
         'PlayerButterflyCollided':{
@@ -184,7 +178,8 @@ func signal_resolver(sig_name,caller = null):
 					quest_objects['gui'].say(action_data)
 					quest_data[sig_name][STATE].remove(quest_data[sig_name][STATE].find(a))
 				if (action == 'SAY'):
-					quest_objects['gui'].say(action_data)
+					if (quest_objects.has('gui')):
+						quest_objects['gui'].say(action_data)
 					#quest_objects['gui'].set_quest(action_data)
 				if (action == 'KICK'):
 					pass	
@@ -193,7 +188,11 @@ func signal_resolver(sig_name,caller = null):
 						caller.queue_free()	
 					else:
 						quest_objects[action_data[0]].queue_free()
-				if (action == 'GAMEOVER'):
+				if (action == 'GAMEOVER_WIN'):
+					waiting_to_change = true 
+					next_scene = "res://scenes/main_menu.scn"
+					set_process(true)
+				if (action == 'GAMEOVER_FAIL'):
 					quest_objects['helldehog'].move_to_start()
 				if (action == 'SET_STATE'):
 					STATE = action_data[0]
@@ -294,6 +293,8 @@ func some_function():
 	print("some function called")
 
 func _ready():
+	for i in get_tree().get_root().get_children():
+		print(i.get_name())
 	#prepare_quests()
 	print("globals ready")
 	main = Node2D.new()
@@ -367,6 +368,28 @@ func load_game():
 	player.set_name('Helldehog')
 	print('loaded')
 	pass	
+
+func _process(delta):
+	if (waiting_to_change):
+		if (!get_tree().is_paused()):
+			waiting_to_change = false
+			set_process(false)
+			change_scene(next_scene)
+			
+func change_scene(path):
+	get_tree().set_pause(true)
+	get_tree().get_root().get_node(".").get_node("container").set_name(".container")
+	get_tree().get_root().get_node(".").get_node(".container").queue_free()
+	#container.queue_free()
+	
+	var scene = load(path).instance()
+	scene.set_name("container")
+	get_tree().get_root().get_node(".").add_child(scene)
+	print(">>>")
+	for i in get_tree().get_root().get_children():
+		print(i.get_name())
+	print("<<<")
+	get_tree().set_pause(false)
 
 func get_player():
 	return quest_objects['helldehog']
