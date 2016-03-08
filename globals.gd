@@ -293,6 +293,8 @@ func some_function():
 	print("some function called")
 
 func _ready():
+	set_pause_mode(3)
+	set_process_input(true)
 	for i in get_tree().get_root().get_children():
 		print(i.get_name())
 	#prepare_quests()
@@ -391,5 +393,23 @@ func change_scene(path):
 	print("<<<")
 	get_tree().set_pause(false)
 
+func toggle_menu():
+	var m = get_tree().get_root().get_node(".").get_node("main_menu")
+	var c = get_tree().get_root().get_node(".").get_node("container")
+	if (m.is_hidden()):
+		get_tree().set_pause(true)
+		m.show()
+		c.hide()
+	else:
+		get_tree().set_pause(false)
+		m.hide()
+		c.hide()
+	pass
+
+	
+func _input(event):
+	if(event.is_action_released("escape")):
+		toggle_menu()
+			
 func get_player():
 	return quest_objects['helldehog']
