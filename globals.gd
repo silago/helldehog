@@ -1,5 +1,6 @@
 extends Node
 
+var camera
 var quests = []
 var quest_objects = {}
 var quest_vars = {
@@ -165,6 +166,11 @@ var    quest_data =  {
 		}
     }
 var STATE = 'TALK_TO_SUPERHOG';
+func set_camera(c):
+	self.camera = c
+func get_camera():
+	return self.camera
+
 func signal_resolver(sig_name,caller = null):
 		print('got signal')
 		print(STATE)
@@ -397,13 +403,15 @@ func toggle_menu():
 	var m = get_tree().get_root().get_node(".").get_node("main_menu")
 	var c = get_tree().get_root().get_node(".").get_node("container")
 	if (m.is_hidden()):
+		print("m was hidden")
 		get_tree().set_pause(true)
+		get_camera().set_zoom(Vector2(1,1))
 		m.show()
 		c.hide()
 	else:
 		get_tree().set_pause(false)
 		m.hide()
-		c.hide()
+		c.show()
 	pass
 
 	
