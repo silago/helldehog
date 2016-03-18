@@ -1,0 +1,7 @@
+{
+        "PlayerExitCollided":{
+            "QUEST_DONE":[
+                ["CHANGE_SCENE",["scenes/part1/1_3.scn"]]
+            ]
+        }
+}
