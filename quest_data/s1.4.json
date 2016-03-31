@@ -1,0 +1,8 @@
+{
+        "PlayerStartRainingCollided":{
+            "INITIAL":[
+                ["ACTION",["rainer"]],
+                ["ACTION",["water"]]
+            ]
+        }
+}

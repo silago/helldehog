@@ -75,6 +75,8 @@ func signal_resolver(sig_name,caller = null):
 					quest_objects[action_data[0]].show()
 				if (action == 'HIDE'):
 					quest_objects[action_data[0]].hide()
+				if (action == 'ACTION'):
+					quest_objects[action_data[0]].action()
 				if (action == 'SET_POS'):
 					quest_objects[action_data[0]].set_pos(stack[0])
 					#stack.erase(0)
@@ -217,6 +219,8 @@ func toggle_menu():
 		c.show()
 	pass
 
+func set_state(statename):
+	STATE=statename
 	
 func _input(event):
 	if(event.is_action_released("escape")):
