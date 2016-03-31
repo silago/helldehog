@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="140" height="40" tilewidth="16" tileheight="16">
+ <tileset firstgid="1" name="mininicular" tilewidth="16" tileheight="16">
+  <image source="mininicular.png" width="64" height="320"/>
+ </tileset>
+ <layer name="1" width="140" height="40">
+  <properties>
+   <property name="collidable" value="true"/>
+  </properties>
+  <data encoding="base64" compression="zlib">
+   eJztmk1LAzEQhrMHUREPUu3Fs7Vg/Sh+3PRSD+r//0EmsIGYZrOT7GSSre8DLy3s0kxn3sxkS5UCYJwLra52EGA2wC8gBfgFpAC/gBTgF5AC/AJSgF9ACvALSAF+ASnAL7J0at75hl9kcH3Sqfn6Bn4pTyy/c/MO/NIGXUAtAr/IEsp1yqz61vopEBcV+EWWUB/x8z/kl2Pn2rpgjDHgF1m6gfex+wy36q+/NsxxUblX8MscuFP7PemkQhxbBb+0jjuHfEnPJdvnQJv4c8iX9FyyfQ60SWgO1ZpLrndBe8TmUI255Hr3sdez1qLgmpf9GkYvjkqu6XId0aKPz+biqX+Vis1lbA7VmEv22Sikd60PxrVetd4i6/nf90Zr5bz610Jy67ryrhk/hPbrUusqElepfIxBmUPSPeZUKAbqXnHX8mvoXhvy+YZwz1RJnBVSe4tUj6HklCMG6l6J1du9to18xppwz1SV7jU5vUXCz5ScLieukXJmG6t3Kz2mpG9S8xXLYQnOCevnejanr5p6D501WuoxJfY0h1f8PHFDOevl7qUpfXXMCzEvmnyNna+5xdFrqLWQiifEUWIclL1Usla2/5TwIodyew1Xb/HFPZsoz0hD3g39hlHqe89JOTU603pQtPNBijhnU+5zG8RbI7PH7B7knElWXLOp1Z5+CDJzifpfOKk65MxKMzOkz4L/XbH9LT2/Kb0GHmlD/v6ueR4I+QYeaU/uWbiF88BO60vrs4FYoH3V+G0IgiAIgg5Vv31yJ7E=
+  </data>
+ </layer>
+</map>

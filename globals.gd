@@ -60,7 +60,7 @@ func signal_resolver(sig_name,caller = null):
 					quest_objects['helldehog'].move_to_start()
 				if (action == 'SET_STATE'):
 					STATE = action_data[0]
-					quest_objects['gui'].set_quest(STATE)
+					#quest_objects['gui'].set_quest(STATE)
 					quest_objects['helldehog'].get_node("chains").play()
 				if (action == 'INC_VAR'):
 					quest_vars[action_data[0]]+=1

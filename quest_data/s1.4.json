@@ -2,7 +2,8 @@
         "PlayerStartRainingCollided":{
             "INITIAL":[
                 ["ACTION",["rainer"]],
-                ["ACTION",["water"]]
+                ["ACTION",["water"]],
+                ["SET_STATE",["FIND_SMALL"]]
             ]
         }
 }
