@@ -151,7 +151,8 @@ func _on_Button_pressed():
 		layer_map.set_owner(root_node)
 		layer_map.set_name(l["name"])
 		layer_map.set_cell_size(cell_size)
-		if (l.has("properties") and l["properties"].has("collidable")):
+		#if (l.has("properties") and l["properties"].has("collidable")):
+		if (true):
 			layer_map.set_tileset(ctileset)
 		else:
 			layer_map.set_tileset(utileset)
