@@ -146,34 +146,47 @@ func _on_Button_pressed():
 
 	var layers = map_data["layers"]
 	for l in layers:
-		var layer_map = TileMap.new()
-		tilemap_root.add_child(layer_map)
-		layer_map.set_owner(root_node)
-		layer_map.set_name(l["name"])
-		layer_map.set_cell_size(cell_size)
-		#if (l.has("properties") and l["properties"].has("collidable")):
-		if (true):
-			layer_map.set_tileset(ctileset)
-		else:
-			layer_map.set_tileset(utileset)
-		var i = 0
-		for y in range(0, l["height"]):
-			for x in range(0, l["width"]):
-				#get the gid as a string first, to prevent rounding error
-				var strgid = str(l["data"][i])
-				var gid = int(strgid)
+        if (l["type"]=='tilelayer'):
+            var layer_map = TileMap.new()
+            tilemap_root.add_child(layer_map)
+            layer_map.set_owner(root_node)
+            layer_map.set_name(l["name"])
+            layer_map.set_cell_size(cell_size)
+            #if (l.has("properties") and l["properties"].has("collidable")):
+            if (true):
+                layer_map.set_tileset(ctileset)
+            else:
+                layer_map.set_tileset(utileset)
+            var i = 0
+            for y in range(0, l["height"]):
+                for x in range(0, l["width"]):
+                    #get the gid as a string first, to prevent rounding error
+                    var strgid = str(l["data"][i])
+                    var gid = int(strgid)
 
-				if (gid != 0):
-					#read the flags from gid
-					var flipped_horizontally = (gid & FLIPPED_HORIZONTALLY_FLAG)
-					var flipped_vertically = (gid & FLIPPED_VERTICALLY_FLAG)
-					var flipped_diagonally = (gid & FLIPPED_DIAGONALLY_FLAG)
+                    if (gid != 0):
+                        #read the flags from gid
+                        var flipped_horizontally = (gid & FLIPPED_HORIZONTALLY_FLAG)
+                        var flipped_vertically = (gid & FLIPPED_VERTICALLY_FLAG)
+                        var flipped_diagonally = (gid & FLIPPED_DIAGONALLY_FLAG)
 
-					#clear the flags to get the actual tile id
-					gid &= ~(FLIPPED_HORIZONTALLY_FLAG | FLIPPED_VERTICALLY_FLAG | FLIPPED_DIAGONALLY_FLAG)
+                        #clear the flags to get the actual tile id
+                        gid &= ~(FLIPPED_HORIZONTALLY_FLAG | FLIPPED_VERTICALLY_FLAG | FLIPPED_DIAGONALLY_FLAG)
 
-					layer_map.set_cell(x, y, gid, flipped_horizontally, flipped_vertically)
-				i += 1
+                        layer_map.set_cell(x, y, gid, flipped_horizontally, flipped_vertically)
+                    i += 1
+        if (l["type"]=="imagelayer"):
+            var path = map_path.get_base_dir() + "/" + l["image"]
+            var texture = load(path)
+            var pic = Sprite.new()
+            pic.set_texture(texture)
+            var x = l["offsetx"]
+            var y = l["offsety"]
+            tilemap_root.add_child(pic)
+            pic.set_owner(root_node)
+            pic.set_name(l["name"])
+            pic.set_pos(Vector2(x,y))
+            print("dnoe>>: " + path)
 
 	error_popup.set_text("Succesfully imported the map")
 	error_popup.popup()
