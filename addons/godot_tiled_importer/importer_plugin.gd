@@ -12,7 +12,7 @@ func _enter_tree():
 	button.set_text("Import Tiled Map")
 	button.connect("pressed",self,"_clickedButton")
 	#add_custom_control(CONTAINER_TOOLBAR,button)
-	add_control_to_dock( DOCK_SLOT_LEFT_UL, button)
+	add_control_to_bottom_panel( button , "Import tilemap")
 
 func _exit_tree():
 	button.free()

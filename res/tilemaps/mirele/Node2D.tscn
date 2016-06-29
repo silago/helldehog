@@ -1,18 +1,19 @@
-[gd_scene load_steps=55 format=1]
+[gd_scene load_steps=56 format=1]
 
 [ext_resource path="res://res/common_bg.scn" type="PackedScene" id=1]
 [ext_resource path="res://res/common_env.scn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/helldehog.scn" type="PackedScene" id=3]
 [ext_resource path="res://res/helldehog.png" type="Texture" id=4]
-[ext_resource path="res://res/tilemaps/mirele/minicular.png" type="Texture" id=5]
-[ext_resource path="res://res/tilemaps/mirele/stumps/stump_1.png" type="Texture" id=6]
-[ext_resource path="res://res/tilemaps/mirele/stumps/murshroom.png" type="Texture" id=7]
-[ext_resource path="res://res/tilemaps/mirele/terns/fern.png" type="Texture" id=8]
-[ext_resource path="res://res/tilemaps/mirele/terns/fern2.png" type="Texture" id=9]
-[ext_resource path="res://res/tilemaps/mirele/terns/stick.png" type="Texture" id=10]
-[ext_resource path="res://res/tilemaps/mirele/terns/root.png" type="Texture" id=11]
-[ext_resource path="res://res/tilemaps/mirele/terns/stick2.png" type="Texture" id=12]
-[ext_resource path="res://res/tilemaps/mirele/terns/tree.png" type="Texture" id=13]
+[ext_resource path="res://res/tilemaps/mirele/1.png" type="Texture" id=5]
+[ext_resource path="res://res/tilemaps/mirele/minicular.png" type="Texture" id=6]
+[ext_resource path="res://res/tilemaps/mirele/stumps/stump_1.png" type="Texture" id=7]
+[ext_resource path="res://res/tilemaps/mirele/stumps/murshroom.png" type="Texture" id=8]
+[ext_resource path="res://res/tilemaps/mirele/terns/fern.png" type="Texture" id=9]
+[ext_resource path="res://res/tilemaps/mirele/terns/fern2.png" type="Texture" id=10]
+[ext_resource path="res://res/tilemaps/mirele/terns/stick.png" type="Texture" id=11]
+[ext_resource path="res://res/tilemaps/mirele/terns/root.png" type="Texture" id=12]
+[ext_resource path="res://res/tilemaps/mirele/terns/stick2.png" type="Texture" id=13]
+[ext_resource path="res://res/tilemaps/mirele/terns/tree.png" type="Texture" id=14]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 
@@ -217,889 +218,651 @@ points = Vector2Array( 4, 0, 16, 0, 16, 16, 0, 16 )
 [sub_resource type="TileSet" id=41]
 
 1/name = ""
-1/texture = ExtResource( 5 )
+1/texture = ExtResource( 6 )
 1/tex_offset = Vector2( 0, 0 )
-1/material = null
 1/region = Rect2( 0, 0, 16, 16 )
 1/occluder_offset = Vector2( 0, 0 )
-1/occluder = null
 1/navigation_offset = Vector2( 0, 0 )
-1/navigation = null
 1/shape_offset = Vector2( 0, 0 )
 1/shapes = [ SubResource( 1 ) ]
 2/name = ""
-2/texture = ExtResource( 5 )
+2/texture = ExtResource( 6 )
 2/tex_offset = Vector2( 0, 0 )
-2/material = null
 2/region = Rect2( 16, 0, 16, 16 )
 2/occluder_offset = Vector2( 0, 0 )
-2/occluder = null
 2/navigation_offset = Vector2( 0, 0 )
-2/navigation = null
 2/shape_offset = Vector2( 0, 0 )
 2/shapes = [  ]
 3/name = ""
-3/texture = ExtResource( 5 )
+3/texture = ExtResource( 6 )
 3/tex_offset = Vector2( 0, 0 )
-3/material = null
 3/region = Rect2( 32, 0, 16, 16 )
 3/occluder_offset = Vector2( 0, 0 )
-3/occluder = null
 3/navigation_offset = Vector2( 0, 0 )
-3/navigation = null
 3/shape_offset = Vector2( 0, 0 )
 3/shapes = [ SubResource( 11 ) ]
 4/name = ""
-4/texture = ExtResource( 5 )
+4/texture = ExtResource( 6 )
 4/tex_offset = Vector2( 0, 0 )
-4/material = null
 4/region = Rect2( 48, 0, 16, 16 )
 4/occluder_offset = Vector2( 0, 0 )
-4/occluder = null
 4/navigation_offset = Vector2( 0, 0 )
-4/navigation = null
 4/shape_offset = Vector2( 0, 0 )
 4/shapes = [ SubResource( 13 ) ]
 5/name = ""
-5/texture = ExtResource( 5 )
+5/texture = ExtResource( 6 )
 5/tex_offset = Vector2( 0, 0 )
-5/material = null
 5/region = Rect2( 0, 16, 16, 16 )
 5/occluder_offset = Vector2( 0, 0 )
-5/occluder = null
 5/navigation_offset = Vector2( 0, 0 )
-5/navigation = null
 5/shape_offset = Vector2( 0, 0 )
 5/shapes = [ SubResource( 21 ) ]
 6/name = ""
-6/texture = ExtResource( 5 )
+6/texture = ExtResource( 6 )
 6/tex_offset = Vector2( 0, 0 )
-6/material = null
 6/region = Rect2( 16, 16, 16, 16 )
 6/occluder_offset = Vector2( 0, 0 )
-6/occluder = null
 6/navigation_offset = Vector2( 0, 0 )
-6/navigation = null
 6/shape_offset = Vector2( 0, 0 )
 6/shapes = [ SubResource( 27 ) ]
 7/name = ""
-7/texture = ExtResource( 5 )
+7/texture = ExtResource( 6 )
 7/tex_offset = Vector2( 0, 0 )
-7/material = null
 7/region = Rect2( 32, 16, 16, 16 )
 7/occluder_offset = Vector2( 0, 0 )
-7/occluder = null
 7/navigation_offset = Vector2( 0, 0 )
-7/navigation = null
 7/shape_offset = Vector2( 0, 0 )
 7/shapes = [ SubResource( 34 ) ]
 8/name = ""
-8/texture = ExtResource( 5 )
+8/texture = ExtResource( 6 )
 8/tex_offset = Vector2( 0, 0 )
-8/material = null
 8/region = Rect2( 48, 16, 16, 16 )
 8/occluder_offset = Vector2( 0, 0 )
-8/occluder = null
 8/navigation_offset = Vector2( 0, 0 )
-8/navigation = null
 8/shape_offset = Vector2( 0, 0 )
 8/shapes = [ SubResource( 39 ) ]
 9/name = ""
-9/texture = ExtResource( 5 )
+9/texture = ExtResource( 6 )
 9/tex_offset = Vector2( 0, 0 )
-9/material = null
 9/region = Rect2( 0, 32, 16, 16 )
 9/occluder_offset = Vector2( 0, 0 )
-9/occluder = null
 9/navigation_offset = Vector2( 0, 0 )
-9/navigation = null
 9/shape_offset = Vector2( 0, 0 )
 9/shapes = [ SubResource( 40 ) ]
 10/name = ""
-10/texture = ExtResource( 5 )
+10/texture = ExtResource( 6 )
 10/tex_offset = Vector2( 0, 0 )
-10/material = null
 10/region = Rect2( 16, 32, 16, 16 )
 10/occluder_offset = Vector2( 0, 0 )
-10/occluder = null
 10/navigation_offset = Vector2( 0, 0 )
-10/navigation = null
 10/shape_offset = Vector2( 0, 0 )
 10/shapes = [ SubResource( 2 ) ]
 11/name = ""
-11/texture = ExtResource( 5 )
+11/texture = ExtResource( 6 )
 11/tex_offset = Vector2( 0, 0 )
-11/material = null
 11/region = Rect2( 32, 32, 16, 16 )
 11/occluder_offset = Vector2( 0, 0 )
-11/occluder = null
 11/navigation_offset = Vector2( 0, 0 )
-11/navigation = null
 11/shape_offset = Vector2( 0, 0 )
 11/shapes = [ SubResource( 3 ) ]
 12/name = ""
-12/texture = ExtResource( 5 )
+12/texture = ExtResource( 6 )
 12/tex_offset = Vector2( 0, 0 )
-12/material = null
 12/region = Rect2( 48, 32, 16, 16 )
 12/occluder_offset = Vector2( 0, 0 )
-12/occluder = null
 12/navigation_offset = Vector2( 0, 0 )
-12/navigation = null
 12/shape_offset = Vector2( 0, 0 )
 12/shapes = [ SubResource( 4 ) ]
 13/name = ""
-13/texture = ExtResource( 5 )
+13/texture = ExtResource( 6 )
 13/tex_offset = Vector2( 0, 0 )
-13/material = null
 13/region = Rect2( 0, 48, 16, 16 )
 13/occluder_offset = Vector2( 0, 0 )
-13/occluder = null
 13/navigation_offset = Vector2( 0, 0 )
-13/navigation = null
 13/shape_offset = Vector2( 0, 0 )
 13/shapes = [ SubResource( 5 ) ]
 14/name = ""
-14/texture = ExtResource( 5 )
+14/texture = ExtResource( 6 )
 14/tex_offset = Vector2( 0, 0 )
-14/material = null
 14/region = Rect2( 16, 48, 16, 16 )
 14/occluder_offset = Vector2( 0, 0 )
-14/occluder = null
 14/navigation_offset = Vector2( 0, 0 )
-14/navigation = null
 14/shape_offset = Vector2( 0, 0 )
 14/shapes = [ SubResource( 6 ) ]
 15/name = ""
-15/texture = ExtResource( 5 )
+15/texture = ExtResource( 6 )
 15/tex_offset = Vector2( 0, 0 )
-15/material = null
 15/region = Rect2( 32, 48, 16, 16 )
 15/occluder_offset = Vector2( 0, 0 )
-15/occluder = null
 15/navigation_offset = Vector2( 0, 0 )
-15/navigation = null
 15/shape_offset = Vector2( 0, 0 )
 15/shapes = [  ]
 16/name = ""
-16/texture = ExtResource( 5 )
+16/texture = ExtResource( 6 )
 16/tex_offset = Vector2( 0, 0 )
-16/material = null
 16/region = Rect2( 48, 48, 16, 16 )
 16/occluder_offset = Vector2( 0, 0 )
-16/occluder = null
 16/navigation_offset = Vector2( 0, 0 )
-16/navigation = null
 16/shape_offset = Vector2( 0, 0 )
 16/shapes = [  ]
 17/name = ""
-17/texture = ExtResource( 5 )
+17/texture = ExtResource( 6 )
 17/tex_offset = Vector2( 0, 0 )
-17/material = null
 17/region = Rect2( 0, 64, 16, 16 )
 17/occluder_offset = Vector2( 0, 0 )
-17/occluder = null
 17/navigation_offset = Vector2( 0, 0 )
-17/navigation = null
 17/shape_offset = Vector2( 0, 0 )
 17/shapes = [ SubResource( 7 ) ]
 18/name = ""
-18/texture = ExtResource( 5 )
+18/texture = ExtResource( 6 )
 18/tex_offset = Vector2( 0, 0 )
-18/material = null
 18/region = Rect2( 16, 64, 16, 16 )
 18/occluder_offset = Vector2( 0, 0 )
-18/occluder = null
 18/navigation_offset = Vector2( 0, 0 )
-18/navigation = null
 18/shape_offset = Vector2( 0, 0 )
 18/shapes = [ SubResource( 8 ) ]
 19/name = ""
-19/texture = ExtResource( 5 )
+19/texture = ExtResource( 6 )
 19/tex_offset = Vector2( 0, 0 )
-19/material = null
 19/region = Rect2( 32, 64, 16, 16 )
 19/occluder_offset = Vector2( 0, 0 )
-19/occluder = null
 19/navigation_offset = Vector2( 0, 0 )
-19/navigation = null
 19/shape_offset = Vector2( 0, 0 )
 19/shapes = [  ]
 20/name = ""
-20/texture = ExtResource( 5 )
+20/texture = ExtResource( 6 )
 20/tex_offset = Vector2( 0, 0 )
-20/material = null
 20/region = Rect2( 48, 64, 16, 16 )
 20/occluder_offset = Vector2( 0, 0 )
-20/occluder = null
 20/navigation_offset = Vector2( 0, 0 )
-20/navigation = null
 20/shape_offset = Vector2( 0, 0 )
 20/shapes = [  ]
 21/name = ""
-21/texture = ExtResource( 5 )
+21/texture = ExtResource( 6 )
 21/tex_offset = Vector2( 0, 0 )
-21/material = null
 21/region = Rect2( 0, 80, 16, 16 )
 21/occluder_offset = Vector2( 0, 0 )
-21/occluder = null
 21/navigation_offset = Vector2( 0, 0 )
-21/navigation = null
 21/shape_offset = Vector2( 0, 0 )
 21/shapes = [ SubResource( 9 ) ]
 22/name = ""
-22/texture = ExtResource( 5 )
+22/texture = ExtResource( 6 )
 22/tex_offset = Vector2( 0, 0 )
-22/material = null
 22/region = Rect2( 16, 80, 16, 16 )
 22/occluder_offset = Vector2( 0, 0 )
-22/occluder = null
 22/navigation_offset = Vector2( 0, 0 )
-22/navigation = null
 22/shape_offset = Vector2( 0, 0 )
 22/shapes = [ SubResource( 10 ) ]
 23/name = ""
-23/texture = ExtResource( 5 )
+23/texture = ExtResource( 6 )
 23/tex_offset = Vector2( 0, 0 )
-23/material = null
 23/region = Rect2( 32, 80, 16, 16 )
 23/occluder_offset = Vector2( 0, 0 )
-23/occluder = null
 23/navigation_offset = Vector2( 0, 0 )
-23/navigation = null
 23/shape_offset = Vector2( 0, 0 )
 23/shapes = [  ]
 24/name = ""
-24/texture = ExtResource( 5 )
+24/texture = ExtResource( 6 )
 24/tex_offset = Vector2( 0, 0 )
-24/material = null
 24/region = Rect2( 48, 80, 16, 16 )
 24/occluder_offset = Vector2( 0, 0 )
-24/occluder = null
 24/navigation_offset = Vector2( 0, 0 )
-24/navigation = null
 24/shape_offset = Vector2( 0, 0 )
 24/shapes = [  ]
 25/name = ""
-25/texture = ExtResource( 5 )
+25/texture = ExtResource( 6 )
 25/tex_offset = Vector2( 0, 0 )
-25/material = null
 25/region = Rect2( 0, 96, 16, 16 )
 25/occluder_offset = Vector2( 0, 0 )
-25/occluder = null
 25/navigation_offset = Vector2( 0, 0 )
-25/navigation = null
 25/shape_offset = Vector2( 0, 0 )
 25/shapes = [  ]
 26/name = ""
-26/texture = ExtResource( 5 )
+26/texture = ExtResource( 6 )
 26/tex_offset = Vector2( 0, 0 )
-26/material = null
 26/region = Rect2( 16, 96, 16, 16 )
 26/occluder_offset = Vector2( 0, 0 )
-26/occluder = null
 26/navigation_offset = Vector2( 0, 0 )
-26/navigation = null
 26/shape_offset = Vector2( 0, 0 )
 26/shapes = [  ]
 27/name = ""
-27/texture = ExtResource( 5 )
+27/texture = ExtResource( 6 )
 27/tex_offset = Vector2( 0, 0 )
-27/material = null
 27/region = Rect2( 32, 96, 16, 16 )
 27/occluder_offset = Vector2( 0, 0 )
-27/occluder = null
 27/navigation_offset = Vector2( 0, 0 )
-27/navigation = null
 27/shape_offset = Vector2( 0, 0 )
 27/shapes = [  ]
 28/name = ""
-28/texture = ExtResource( 5 )
+28/texture = ExtResource( 6 )
 28/tex_offset = Vector2( 0, 0 )
-28/material = null
 28/region = Rect2( 48, 96, 16, 16 )
 28/occluder_offset = Vector2( 0, 0 )
-28/occluder = null
 28/navigation_offset = Vector2( 0, 0 )
-28/navigation = null
 28/shape_offset = Vector2( 0, 0 )
 28/shapes = [  ]
 29/name = ""
-29/texture = ExtResource( 5 )
+29/texture = ExtResource( 6 )
 29/tex_offset = Vector2( 0, 0 )
-29/material = null
 29/region = Rect2( 0, 112, 16, 16 )
 29/occluder_offset = Vector2( 0, 0 )
-29/occluder = null
 29/navigation_offset = Vector2( 0, 0 )
-29/navigation = null
 29/shape_offset = Vector2( 0, 0 )
 29/shapes = [  ]
 30/name = ""
-30/texture = ExtResource( 5 )
+30/texture = ExtResource( 6 )
 30/tex_offset = Vector2( 0, 0 )
-30/material = null
 30/region = Rect2( 16, 112, 16, 16 )
 30/occluder_offset = Vector2( 0, 0 )
-30/occluder = null
 30/navigation_offset = Vector2( 0, 0 )
-30/navigation = null
 30/shape_offset = Vector2( 0, 0 )
 30/shapes = [  ]
 31/name = ""
-31/texture = ExtResource( 5 )
+31/texture = ExtResource( 6 )
 31/tex_offset = Vector2( 0, 0 )
-31/material = null
 31/region = Rect2( 32, 112, 16, 16 )
 31/occluder_offset = Vector2( 0, 0 )
-31/occluder = null
 31/navigation_offset = Vector2( 0, 0 )
-31/navigation = null
 31/shape_offset = Vector2( 0, 0 )
 31/shapes = [  ]
 32/name = ""
-32/texture = ExtResource( 5 )
+32/texture = ExtResource( 6 )
 32/tex_offset = Vector2( 0, 0 )
-32/material = null
 32/region = Rect2( 48, 112, 16, 16 )
 32/occluder_offset = Vector2( 0, 0 )
-32/occluder = null
 32/navigation_offset = Vector2( 0, 0 )
-32/navigation = null
 32/shape_offset = Vector2( 0, 0 )
 32/shapes = [  ]
 33/name = ""
-33/texture = ExtResource( 5 )
+33/texture = ExtResource( 6 )
 33/tex_offset = Vector2( 0, 0 )
-33/material = null
 33/region = Rect2( 0, 128, 16, 16 )
 33/occluder_offset = Vector2( 0, 0 )
-33/occluder = null
 33/navigation_offset = Vector2( 0, 0 )
-33/navigation = null
 33/shape_offset = Vector2( 0, 0 )
 33/shapes = [  ]
 34/name = ""
-34/texture = ExtResource( 5 )
+34/texture = ExtResource( 6 )
 34/tex_offset = Vector2( 0, 0 )
-34/material = null
 34/region = Rect2( 16, 128, 16, 16 )
 34/occluder_offset = Vector2( 0, 0 )
-34/occluder = null
 34/navigation_offset = Vector2( 0, 0 )
-34/navigation = null
 34/shape_offset = Vector2( 0, 0 )
 34/shapes = [  ]
 35/name = ""
-35/texture = ExtResource( 5 )
+35/texture = ExtResource( 6 )
 35/tex_offset = Vector2( 0, 0 )
-35/material = null
 35/region = Rect2( 32, 128, 16, 16 )
 35/occluder_offset = Vector2( 0, 0 )
-35/occluder = null
 35/navigation_offset = Vector2( 0, 0 )
-35/navigation = null
 35/shape_offset = Vector2( 0, 0 )
 35/shapes = [  ]
 36/name = ""
-36/texture = ExtResource( 5 )
+36/texture = ExtResource( 6 )
 36/tex_offset = Vector2( 0, 0 )
-36/material = null
 36/region = Rect2( 48, 128, 16, 16 )
 36/occluder_offset = Vector2( 0, 0 )
-36/occluder = null
 36/navigation_offset = Vector2( 0, 0 )
-36/navigation = null
 36/shape_offset = Vector2( 0, 0 )
 36/shapes = [  ]
 37/name = ""
-37/texture = ExtResource( 5 )
+37/texture = ExtResource( 6 )
 37/tex_offset = Vector2( 0, 0 )
-37/material = null
 37/region = Rect2( 0, 144, 16, 16 )
 37/occluder_offset = Vector2( 0, 0 )
-37/occluder = null
 37/navigation_offset = Vector2( 0, 0 )
-37/navigation = null
 37/shape_offset = Vector2( 0, 0 )
 37/shapes = [  ]
 38/name = ""
-38/texture = ExtResource( 5 )
+38/texture = ExtResource( 6 )
 38/tex_offset = Vector2( 0, 0 )
-38/material = null
 38/region = Rect2( 16, 144, 16, 16 )
 38/occluder_offset = Vector2( 0, 0 )
-38/occluder = null
 38/navigation_offset = Vector2( 0, 0 )
-38/navigation = null
 38/shape_offset = Vector2( 0, 0 )
 38/shapes = [  ]
 39/name = ""
-39/texture = ExtResource( 5 )
+39/texture = ExtResource( 6 )
 39/tex_offset = Vector2( 0, 0 )
-39/material = null
 39/region = Rect2( 32, 144, 16, 16 )
 39/occluder_offset = Vector2( 0, 0 )
-39/occluder = null
 39/navigation_offset = Vector2( 0, 0 )
-39/navigation = null
 39/shape_offset = Vector2( 0, 0 )
 39/shapes = [ SubResource( 12 ) ]
 40/name = ""
-40/texture = ExtResource( 5 )
+40/texture = ExtResource( 6 )
 40/tex_offset = Vector2( 0, 0 )
-40/material = null
 40/region = Rect2( 48, 144, 16, 16 )
 40/occluder_offset = Vector2( 0, 0 )
-40/occluder = null
 40/navigation_offset = Vector2( 0, 0 )
-40/navigation = null
 40/shape_offset = Vector2( 0, 0 )
 40/shapes = [ SubResource( 14 ) ]
 41/name = ""
-41/texture = ExtResource( 5 )
+41/texture = ExtResource( 6 )
 41/tex_offset = Vector2( 0, 0 )
-41/material = null
 41/region = Rect2( 0, 160, 16, 16 )
 41/occluder_offset = Vector2( 0, 0 )
-41/occluder = null
 41/navigation_offset = Vector2( 0, 0 )
-41/navigation = null
 41/shape_offset = Vector2( 0, 0 )
 41/shapes = [ SubResource( 15 ) ]
 42/name = ""
-42/texture = ExtResource( 5 )
+42/texture = ExtResource( 6 )
 42/tex_offset = Vector2( 0, 0 )
-42/material = null
 42/region = Rect2( 16, 160, 16, 16 )
 42/occluder_offset = Vector2( 0, 0 )
-42/occluder = null
 42/navigation_offset = Vector2( 0, 0 )
-42/navigation = null
 42/shape_offset = Vector2( 0, 0 )
 42/shapes = [ SubResource( 16 ) ]
 43/name = ""
-43/texture = ExtResource( 5 )
+43/texture = ExtResource( 6 )
 43/tex_offset = Vector2( 0, 0 )
-43/material = null
 43/region = Rect2( 32, 160, 16, 16 )
 43/occluder_offset = Vector2( 0, 0 )
-43/occluder = null
 43/navigation_offset = Vector2( 0, 0 )
-43/navigation = null
 43/shape_offset = Vector2( 0, 0 )
 43/shapes = [ SubResource( 17 ) ]
 44/name = ""
-44/texture = ExtResource( 5 )
+44/texture = ExtResource( 6 )
 44/tex_offset = Vector2( 0, 0 )
-44/material = null
 44/region = Rect2( 48, 160, 16, 16 )
 44/occluder_offset = Vector2( 0, 0 )
-44/occluder = null
 44/navigation_offset = Vector2( 0, 0 )
-44/navigation = null
 44/shape_offset = Vector2( 0, 0 )
 44/shapes = [  ]
 45/name = ""
-45/texture = ExtResource( 5 )
+45/texture = ExtResource( 6 )
 45/tex_offset = Vector2( 0, 0 )
-45/material = null
 45/region = Rect2( 0, 176, 16, 16 )
 45/occluder_offset = Vector2( 0, 0 )
-45/occluder = null
 45/navigation_offset = Vector2( 0, 0 )
-45/navigation = null
 45/shape_offset = Vector2( 0, 0 )
 45/shapes = [ SubResource( 18 ) ]
 46/name = ""
-46/texture = ExtResource( 5 )
+46/texture = ExtResource( 6 )
 46/tex_offset = Vector2( 0, 0 )
-46/material = null
 46/region = Rect2( 16, 176, 16, 16 )
 46/occluder_offset = Vector2( 0, 0 )
-46/occluder = null
 46/navigation_offset = Vector2( 0, 0 )
-46/navigation = null
 46/shape_offset = Vector2( 0, 0 )
 46/shapes = [ SubResource( 19 ) ]
 47/name = ""
-47/texture = ExtResource( 5 )
+47/texture = ExtResource( 6 )
 47/tex_offset = Vector2( 0, 0 )
-47/material = null
 47/region = Rect2( 32, 176, 16, 16 )
 47/occluder_offset = Vector2( 0, 0 )
-47/occluder = null
 47/navigation_offset = Vector2( 0, 0 )
-47/navigation = null
 47/shape_offset = Vector2( 0, 0 )
 47/shapes = [  ]
 48/name = ""
-48/texture = ExtResource( 5 )
+48/texture = ExtResource( 6 )
 48/tex_offset = Vector2( 0, 0 )
-48/material = null
 48/region = Rect2( 48, 176, 16, 16 )
 48/occluder_offset = Vector2( 0, 0 )
-48/occluder = null
 48/navigation_offset = Vector2( 0, 0 )
-48/navigation = null
 48/shape_offset = Vector2( 0, 0 )
 48/shapes = [  ]
 49/name = ""
-49/texture = ExtResource( 5 )
+49/texture = ExtResource( 6 )
 49/tex_offset = Vector2( 0, 0 )
-49/material = null
 49/region = Rect2( 0, 192, 16, 16 )
 49/occluder_offset = Vector2( 0, 0 )
-49/occluder = null
 49/navigation_offset = Vector2( 0, 0 )
-49/navigation = null
 49/shape_offset = Vector2( 0, 0 )
 49/shapes = [ SubResource( 20 ) ]
 50/name = ""
-50/texture = ExtResource( 5 )
+50/texture = ExtResource( 6 )
 50/tex_offset = Vector2( 0, 0 )
-50/material = null
 50/region = Rect2( 16, 192, 16, 16 )
 50/occluder_offset = Vector2( 0, 0 )
-50/occluder = null
 50/navigation_offset = Vector2( 0, 0 )
-50/navigation = null
 50/shape_offset = Vector2( 0, 0 )
 50/shapes = [ SubResource( 22 ) ]
 51/name = ""
-51/texture = ExtResource( 5 )
+51/texture = ExtResource( 6 )
 51/tex_offset = Vector2( 0, 0 )
-51/material = null
 51/region = Rect2( 32, 192, 16, 16 )
 51/occluder_offset = Vector2( 0, 0 )
-51/occluder = null
 51/navigation_offset = Vector2( 0, 0 )
-51/navigation = null
 51/shape_offset = Vector2( 0, 0 )
 51/shapes = [  ]
 52/name = ""
-52/texture = ExtResource( 5 )
+52/texture = ExtResource( 6 )
 52/tex_offset = Vector2( 0, 0 )
-52/material = null
 52/region = Rect2( 48, 192, 16, 16 )
 52/occluder_offset = Vector2( 0, 0 )
-52/occluder = null
 52/navigation_offset = Vector2( 0, 0 )
-52/navigation = null
 52/shape_offset = Vector2( 0, 0 )
 52/shapes = [  ]
 53/name = ""
-53/texture = ExtResource( 5 )
+53/texture = ExtResource( 6 )
 53/tex_offset = Vector2( 0, 0 )
-53/material = null
 53/region = Rect2( 0, 208, 16, 16 )
 53/occluder_offset = Vector2( 0, 0 )
-53/occluder = null
 53/navigation_offset = Vector2( 0, 0 )
-53/navigation = null
 53/shape_offset = Vector2( 0, 0 )
 53/shapes = [ SubResource( 23 ) ]
 54/name = ""
-54/texture = ExtResource( 5 )
+54/texture = ExtResource( 6 )
 54/tex_offset = Vector2( 0, 0 )
-54/material = null
 54/region = Rect2( 16, 208, 16, 16 )
 54/occluder_offset = Vector2( 0, 0 )
-54/occluder = null
 54/navigation_offset = Vector2( 0, 0 )
-54/navigation = null
 54/shape_offset = Vector2( 0, 0 )
 54/shapes = [ SubResource( 24 ) ]
 55/name = ""
-55/texture = ExtResource( 5 )
+55/texture = ExtResource( 6 )
 55/tex_offset = Vector2( 0, 0 )
-55/material = null
 55/region = Rect2( 32, 208, 16, 16 )
 55/occluder_offset = Vector2( 0, 0 )
-55/occluder = null
 55/navigation_offset = Vector2( 0, 0 )
-55/navigation = null
 55/shape_offset = Vector2( 0, 0 )
 55/shapes = [  ]
 56/name = ""
-56/texture = ExtResource( 5 )
+56/texture = ExtResource( 6 )
 56/tex_offset = Vector2( 0, 0 )
-56/material = null
 56/region = Rect2( 48, 208, 16, 16 )
 56/occluder_offset = Vector2( 0, 0 )
-56/occluder = null
 56/navigation_offset = Vector2( 0, 0 )
-56/navigation = null
 56/shape_offset = Vector2( 0, 0 )
 56/shapes = [  ]
 57/name = ""
-57/texture = ExtResource( 5 )
+57/texture = ExtResource( 6 )
 57/tex_offset = Vector2( 0, 0 )
-57/material = null
 57/region = Rect2( 0, 224, 16, 16 )
 57/occluder_offset = Vector2( 0, 0 )
-57/occluder = null
 57/navigation_offset = Vector2( 0, 0 )
-57/navigation = null
 57/shape_offset = Vector2( 0, 0 )
 57/shapes = [ SubResource( 25 ) ]
 58/name = ""
-58/texture = ExtResource( 5 )
+58/texture = ExtResource( 6 )
 58/tex_offset = Vector2( 0, 0 )
-58/material = null
 58/region = Rect2( 16, 224, 16, 16 )
 58/occluder_offset = Vector2( 0, 0 )
-58/occluder = null
 58/navigation_offset = Vector2( 0, 0 )
-58/navigation = null
 58/shape_offset = Vector2( 0, 0 )
 58/shapes = [ SubResource( 26 ) ]
 59/name = ""
-59/texture = ExtResource( 5 )
+59/texture = ExtResource( 6 )
 59/tex_offset = Vector2( 0, 0 )
-59/material = null
 59/region = Rect2( 32, 224, 16, 16 )
 59/occluder_offset = Vector2( 0, 0 )
-59/occluder = null
 59/navigation_offset = Vector2( 0, 0 )
-59/navigation = null
 59/shape_offset = Vector2( 0, 0 )
 59/shapes = [  ]
 60/name = ""
-60/texture = ExtResource( 5 )
+60/texture = ExtResource( 6 )
 60/tex_offset = Vector2( 0, 0 )
-60/material = null
 60/region = Rect2( 48, 224, 16, 16 )
 60/occluder_offset = Vector2( 0, 0 )
-60/occluder = null
 60/navigation_offset = Vector2( 0, 0 )
-60/navigation = null
 60/shape_offset = Vector2( 0, 0 )
 60/shapes = [  ]
 61/name = ""
-61/texture = ExtResource( 5 )
+61/texture = ExtResource( 6 )
 61/tex_offset = Vector2( 0, 0 )
-61/material = null
 61/region = Rect2( 0, 240, 16, 16 )
 61/occluder_offset = Vector2( 0, 0 )
-61/occluder = null
 61/navigation_offset = Vector2( 0, 0 )
-61/navigation = null
 61/shape_offset = Vector2( 0, 0 )
 61/shapes = [ SubResource( 28 ) ]
 62/name = ""
-62/texture = ExtResource( 5 )
+62/texture = ExtResource( 6 )
 62/tex_offset = Vector2( 0, 0 )
-62/material = null
 62/region = Rect2( 16, 240, 16, 16 )
 62/occluder_offset = Vector2( 0, 0 )
-62/occluder = null
 62/navigation_offset = Vector2( 0, 0 )
-62/navigation = null
 62/shape_offset = Vector2( 0, 0 )
 62/shapes = [ SubResource( 29 ) ]
 63/name = ""
-63/texture = ExtResource( 5 )
+63/texture = ExtResource( 6 )
 63/tex_offset = Vector2( 0, 0 )
-63/material = null
 63/region = Rect2( 32, 240, 16, 16 )
 63/occluder_offset = Vector2( 0, 0 )
-63/occluder = null
 63/navigation_offset = Vector2( 0, 0 )
-63/navigation = null
 63/shape_offset = Vector2( 0, 0 )
 63/shapes = [  ]
 64/name = ""
-64/texture = ExtResource( 5 )
+64/texture = ExtResource( 6 )
 64/tex_offset = Vector2( 0, 0 )
-64/material = null
 64/region = Rect2( 48, 240, 16, 16 )
 64/occluder_offset = Vector2( 0, 0 )
-64/occluder = null
 64/navigation_offset = Vector2( 0, 0 )
-64/navigation = null
 64/shape_offset = Vector2( 0, 0 )
 64/shapes = [  ]
 65/name = ""
-65/texture = ExtResource( 5 )
+65/texture = ExtResource( 6 )
 65/tex_offset = Vector2( 0, 0 )
-65/material = null
 65/region = Rect2( 0, 256, 16, 16 )
 65/occluder_offset = Vector2( 0, 0 )
-65/occluder = null
 65/navigation_offset = Vector2( 0, 0 )
-65/navigation = null
 65/shape_offset = Vector2( 0, 0 )
 65/shapes = [ SubResource( 30 ) ]
 66/name = ""
-66/texture = ExtResource( 5 )
+66/texture = ExtResource( 6 )
 66/tex_offset = Vector2( 0, 0 )
-66/material = null
 66/region = Rect2( 16, 256, 16, 16 )
 66/occluder_offset = Vector2( 0, 0 )
-66/occluder = null
 66/navigation_offset = Vector2( 0, 0 )
-66/navigation = null
 66/shape_offset = Vector2( 0, 0 )
 66/shapes = [ SubResource( 31 ) ]
 67/name = ""
-67/texture = ExtResource( 5 )
+67/texture = ExtResource( 6 )
 67/tex_offset = Vector2( 0, 0 )
-67/material = null
 67/region = Rect2( 32, 256, 16, 16 )
 67/occluder_offset = Vector2( 0, 0 )
-67/occluder = null
 67/navigation_offset = Vector2( 0, 0 )
-67/navigation = null
 67/shape_offset = Vector2( 0, 0 )
 67/shapes = [ SubResource( 32 ) ]
 68/name = ""
-68/texture = ExtResource( 5 )
+68/texture = ExtResource( 6 )
 68/tex_offset = Vector2( 0, 0 )
-68/material = null
 68/region = Rect2( 48, 256, 16, 16 )
 68/occluder_offset = Vector2( 0, 0 )
-68/occluder = null
 68/navigation_offset = Vector2( 0, 0 )
-68/navigation = null
 68/shape_offset = Vector2( 0, 0 )
 68/shapes = [ SubResource( 33 ) ]
 69/name = ""
-69/texture = ExtResource( 5 )
+69/texture = ExtResource( 6 )
 69/tex_offset = Vector2( 0, 0 )
-69/material = null
 69/region = Rect2( 0, 272, 16, 16 )
 69/occluder_offset = Vector2( 0, 0 )
-69/occluder = null
 69/navigation_offset = Vector2( 0, 0 )
-69/navigation = null
 69/shape_offset = Vector2( 0, 0 )
 69/shapes = [  ]
 70/name = ""
-70/texture = ExtResource( 5 )
+70/texture = ExtResource( 6 )
 70/tex_offset = Vector2( 0, 0 )
-70/material = null
 70/region = Rect2( 16, 272, 16, 16 )
 70/occluder_offset = Vector2( 0, 0 )
-70/occluder = null
 70/navigation_offset = Vector2( 0, 0 )
-70/navigation = null
 70/shape_offset = Vector2( 0, 0 )
 70/shapes = [  ]
 71/name = ""
-71/texture = ExtResource( 5 )
+71/texture = ExtResource( 6 )
 71/tex_offset = Vector2( 0, 0 )
-71/material = null
 71/region = Rect2( 32, 272, 16, 16 )
 71/occluder_offset = Vector2( 0, 0 )
-71/occluder = null
 71/navigation_offset = Vector2( 0, 0 )
-71/navigation = null
 71/shape_offset = Vector2( 0, 0 )
 71/shapes = [  ]
 72/name = ""
-72/texture = ExtResource( 5 )
+72/texture = ExtResource( 6 )
 72/tex_offset = Vector2( 0, 0 )
-72/material = null
 72/region = Rect2( 48, 272, 16, 16 )
 72/occluder_offset = Vector2( 0, 0 )
-72/occluder = null
 72/navigation_offset = Vector2( 0, 0 )
-72/navigation = null
 72/shape_offset = Vector2( 0, 0 )
 72/shapes = [ SubResource( 35 ) ]
 73/name = ""
-73/texture = ExtResource( 5 )
+73/texture = ExtResource( 6 )
 73/tex_offset = Vector2( 0, 0 )
-73/material = null
 73/region = Rect2( 0, 288, 16, 16 )
 73/occluder_offset = Vector2( 0, 0 )
-73/occluder = null
 73/navigation_offset = Vector2( 0, 0 )
-73/navigation = null
 73/shape_offset = Vector2( 0, 0 )
 73/shapes = [ SubResource( 36 ) ]
 74/name = ""
-74/texture = ExtResource( 5 )
+74/texture = ExtResource( 6 )
 74/tex_offset = Vector2( 0, 0 )
-74/material = null
 74/region = Rect2( 16, 288, 16, 16 )
 74/occluder_offset = Vector2( 0, 0 )
-74/occluder = null
 74/navigation_offset = Vector2( 0, 0 )
-74/navigation = null
 74/shape_offset = Vector2( 0, 0 )
 74/shapes = [ SubResource( 37 ) ]
 75/name = ""
-75/texture = ExtResource( 5 )
+75/texture = ExtResource( 6 )
 75/tex_offset = Vector2( 0, 0 )
-75/material = null
 75/region = Rect2( 32, 288, 16, 16 )
 75/occluder_offset = Vector2( 0, 0 )
-75/occluder = null
 75/navigation_offset = Vector2( 0, 0 )
-75/navigation = null
 75/shape_offset = Vector2( 0, 0 )
 75/shapes = [  ]
 76/name = ""
-76/texture = ExtResource( 5 )
+76/texture = ExtResource( 6 )
 76/tex_offset = Vector2( 0, 0 )
-76/material = null
 76/region = Rect2( 48, 288, 16, 16 )
 76/occluder_offset = Vector2( 0, 0 )
-76/occluder = null
 76/navigation_offset = Vector2( 0, 0 )
-76/navigation = null
 76/shape_offset = Vector2( 0, 0 )
 76/shapes = [  ]
 77/name = ""
-77/texture = ExtResource( 5 )
+77/texture = ExtResource( 6 )
 77/tex_offset = Vector2( 0, 0 )
-77/material = null
 77/region = Rect2( 0, 304, 16, 16 )
 77/occluder_offset = Vector2( 0, 0 )
-77/occluder = null
 77/navigation_offset = Vector2( 0, 0 )
-77/navigation = null
 77/shape_offset = Vector2( 0, 0 )
 77/shapes = [  ]
 78/name = ""
-78/texture = ExtResource( 5 )
+78/texture = ExtResource( 6 )
 78/tex_offset = Vector2( 0, 0 )
-78/material = null
 78/region = Rect2( 16, 304, 16, 16 )
 78/occluder_offset = Vector2( 0, 0 )
-78/occluder = null
 78/navigation_offset = Vector2( 0, 0 )
-78/navigation = null
 78/shape_offset = Vector2( 0, 0 )
 78/shapes = [  ]
 79/name = ""
-79/texture = ExtResource( 5 )
+79/texture = ExtResource( 6 )
 79/tex_offset = Vector2( 0, 0 )
-79/material = null
 79/region = Rect2( 32, 304, 16, 16 )
 79/occluder_offset = Vector2( 0, 0 )
-79/occluder = null
 79/navigation_offset = Vector2( 0, 0 )
-79/navigation = null
 79/shape_offset = Vector2( 0, 0 )
 79/shapes = [ SubResource( 38 ) ]
 80/name = ""
-80/texture = ExtResource( 5 )
+80/texture = ExtResource( 6 )
 80/tex_offset = Vector2( 0, 0 )
-80/material = null
 80/region = Rect2( 48, 304, 16, 16 )
 80/occluder_offset = Vector2( 0, 0 )
-80/occluder = null
 80/navigation_offset = Vector2( 0, 0 )
-80/navigation = null
 80/shape_offset = Vector2( 0, 0 )
 80/shapes = [  ]
 
 [node name="Node2D" type="Node2D"]
 
 [node name="background" parent="." instance=ExtResource( 1 )]
+
+editor/display_folded = true
 
 [node name="BGBack" parent="background"]
 
@@ -1118,7 +881,7 @@ motion/offset = Vector2( 0, 0 )
 
 [node name="Helldehog" parent="." instance=ExtResource( 3 )]
 
-transform/pos = Vector2( 40, 0 )
+transform/pos = Vector2( 890, 300 )
 
 [node name="sprite" parent="Helldehog"]
 
@@ -1132,84 +895,104 @@ size_flags/vertical = 0
 
 [node name="camera" parent="Helldehog"]
 
-zoom = Vector2( 0.3, 0.3 )
+zoom = Vector2( 0.5, 0.5 )
+smoothing/enable = false
 
 [node name="Tile Map" type="Node2D" parent="."]
 
 [node name="Слой изображений 3" type="Sprite" parent="Tile Map"]
 
 transform/pos = Vector2( 97, 0 )
+texture = ExtResource( 5 )
 
 [node name="Копия Слой изображений 3" type="Sprite" parent="Tile Map"]
 
 transform/pos = Vector2( 1717, 0 )
+texture = ExtResource( 5 )
 
 [node name="Копия Копия Слой изображений 3" type="Sprite" parent="Tile Map"]
 
 transform/pos = Vector2( 2587, -2 )
+texture = ExtResource( 5 )
 
 [node name="Копия Копия Копия Слой изображений 3" type="Sprite" parent="Tile Map"]
 
 transform/pos = Vector2( 3363, 2 )
+texture = ExtResource( 5 )
 
 [node name="Копия Копия Копия Копия Слой изображений 3" type="Sprite" parent="Tile Map"]
 
 transform/pos = Vector2( 4083, 2 )
+texture = ExtResource( 5 )
 
 [node name="Копия Слой изображений 3 2" type="Sprite" parent="Tile Map"]
 
 transform/pos = Vector2( 892, -2 )
+texture = ExtResource( 5 )
 
 [node name="Слой изображений 2" type="Sprite" parent="Tile Map"]
 
 transform/pos = Vector2( -197, 0 )
+texture = ExtResource( 5 )
 
 [node name="Копия Слой изображений 2" type="Sprite" parent="Tile Map"]
 
 transform/pos = Vector2( 1587, 0 )
+texture = ExtResource( 5 )
 
 [node name="Копия Копия Слой изображений 2" type="Sprite" parent="Tile Map"]
 
 transform/pos = Vector2( 2521, -2 )
+texture = ExtResource( 5 )
 
 [node name="Копия Копия Копия Слой изображений 2" type="Sprite" parent="Tile Map"]
 
 transform/pos = Vector2( 3413, -6 )
+texture = ExtResource( 5 )
 
 [node name="Копия Копия Копия Копия Слой изображений 2" type="Sprite" parent="Tile Map"]
 
 transform/pos = Vector2( 4157, -2 )
+texture = ExtResource( 5 )
 
 [node name="Копия Слой изображений 2 2" type="Sprite" parent="Tile Map"]
 
 transform/pos = Vector2( 807, 0 )
+texture = ExtResource( 5 )
 
 [node name="Слой изображений 1" type="Sprite" parent="Tile Map"]
 
 transform/pos = Vector2( -43, 0 )
+texture = ExtResource( 5 )
 
 [node name="Копия Слой изображений 1" type="Sprite" parent="Tile Map"]
 
 transform/pos = Vector2( 1662.33, 0 )
+texture = ExtResource( 5 )
 
 [node name="Копия Копия Слой изображений 1" type="Sprite" parent="Tile Map"]
 
 transform/pos = Vector2( 2404.33, -2 )
+texture = ExtResource( 5 )
 
 [node name="Копия Копия Копия Слой изображений 1" type="Sprite" parent="Tile Map"]
 
 transform/pos = Vector2( 3288.33, -2 )
+texture = ExtResource( 5 )
 
 [node name="Копия Копия Копия Копия Слой изображений 1" type="Sprite" parent="Tile Map"]
 
 transform/pos = Vector2( 4024.33, -2 )
+texture = ExtResource( 5 )
 
 [node name="Копия Слой изображений 1 2" type="Sprite" parent="Tile Map"]
 
 transform/pos = Vector2( 755, -4 )
+texture = ExtResource( 5 )
 
 [node name="Слой тайлов 2" type="TileMap" parent="Tile Map"]
 
+transform/pos = Vector2( -172, 63 )
 mode = 0
 tile_set = SubResource( 41 )
 cell/size = Vector2( 16, 16 )
@@ -1228,6 +1011,7 @@ tile_data = IntArray( 720909, 29, 720910, 29, 720911, 29, 720912, 29, 720913, 29
 
 [node name="Слой тайлов 1" type="TileMap" parent="Tile Map"]
 
+transform/pos = Vector2( -172, 63 )
 mode = 0
 tile_set = SubResource( 41 )
 cell/size = Vector2( 16, 16 )
@@ -1246,138 +1030,138 @@ tile_data = IntArray( 280, 17, 281, 1, 282, 1, 283, 1, 284, 1, 285, 1, 286, 1, 2
 
 [node name="пенек" type="Sprite" parent="Tile Map"]
 
-transform/pos = Vector2( 1411, 440 )
-texture = ExtResource( 6 )
+transform/pos = Vector2( 1411, 500 )
+texture = ExtResource( 7 )
 
 [node name="Копия пенек" type="Sprite" parent="Tile Map"]
 
-transform/pos = Vector2( 3631, 168 )
-texture = ExtResource( 6 )
+transform/pos = Vector2( 3631, 228 )
+texture = ExtResource( 7 )
 
 [node name="Копия пенек 2" type="Sprite" parent="Tile Map"]
 
-transform/pos = Vector2( 2492.67, 424.667 )
-texture = ExtResource( 6 )
+transform/pos = Vector2( 2492.67, 484.667 )
+texture = ExtResource( 7 )
 
 [node name="гриб" type="Sprite" parent="Tile Map"]
 
-transform/pos = Vector2( 1102.67, 344 )
-texture = ExtResource( 7 )
+transform/pos = Vector2( 1102.67, 474 )
+texture = ExtResource( 8 )
 
 [node name="Копия гриб" type="Sprite" parent="Tile Map"]
 
 transform/pos = Vector2( 3566.67, 500 )
-texture = ExtResource( 7 )
+texture = ExtResource( 8 )
 
 [node name="Копия Копия гриб" type="Sprite" parent="Tile Map"]
 
 transform/pos = Vector2( 3094.67, 134 )
-texture = ExtResource( 7 )
+texture = ExtResource( 8 )
 
 [node name="Копия Копия Копия гриб" type="Sprite" parent="Tile Map"]
 
-transform/pos = Vector2( 4050.67, 382 )
-texture = ExtResource( 7 )
+transform/pos = Vector2( 4000.67, 392 )
+texture = ExtResource( 8 )
 
 [node name="Копия гриб 2" type="Sprite" parent="Tile Map"]
 
-transform/pos = Vector2( 2065.67, 415 )
-texture = ExtResource( 7 )
+transform/pos = Vector2( 2065.67, 445 )
+texture = ExtResource( 8 )
 
 [node name="папоротник1" type="Sprite" parent="Tile Map"]
 
-transform/pos = Vector2( 24, 44 )
-texture = ExtResource( 8 )
+transform/pos = Vector2( 24, 84 )
+texture = ExtResource( 9 )
 
 [node name="Копия папоротник1" type="Sprite" parent="Tile Map"]
 
-transform/pos = Vector2( 2738, 206 )
-texture = ExtResource( 8 )
+transform/pos = Vector2( 2738, 246 )
+texture = ExtResource( 9 )
 
 [node name="Копия папоротник1 2" type="Sprite" parent="Tile Map"]
 
-transform/pos = Vector2( 737.333, 408 )
-texture = ExtResource( 8 )
+transform/pos = Vector2( 707.333, 458 )
+texture = ExtResource( 9 )
 
 [node name="Копия Копия папоротник1" type="Sprite" parent="Tile Map"]
 
-transform/pos = Vector2( 1525.33, 412 )
-texture = ExtResource( 8 )
+transform/pos = Vector2( 1525.33, 302 )
+texture = ExtResource( 9 )
 
 [node name="папоротник2" type="Sprite" parent="Tile Map"]
 
-transform/pos = Vector2( 1828, 402.667 )
-texture = ExtResource( 9 )
+transform/pos = Vector2( 1828, 442.667 )
+texture = ExtResource( 10 )
 
 [node name="Копия папоротник2" type="Sprite" parent="Tile Map"]
 
-transform/pos = Vector2( 3474, 146.667 )
-texture = ExtResource( 9 )
+transform/pos = Vector2( 3474, 216.667 )
+texture = ExtResource( 10 )
 
 [node name="Копия Копия папоротник2" type="Sprite" parent="Tile Map"]
 
-transform/pos = Vector2( 4286, 124.667 )
-texture = ExtResource( 9 )
+transform/pos = Vector2( 4246, 184.667 )
+texture = ExtResource( 10 )
 
 [node name="палочка" type="Sprite" parent="Tile Map"]
 
 transform/pos = Vector2( 2680, 384 )
-texture = ExtResource( 10 )
+texture = ExtResource( 11 )
 
 [node name="корень" type="Sprite" parent="Tile Map"]
 
 transform/pos = Vector2( 3024.67, 284 )
-texture = ExtResource( 11 )
+texture = ExtResource( 12 )
 
 [node name="Копия корень" type="Sprite" parent="Tile Map"]
 
 transform/pos = Vector2( 3615.33, 392 )
-texture = ExtResource( 11 )
+texture = ExtResource( 12 )
 
 [node name="Копия Копия корень" type="Sprite" parent="Tile Map"]
 
 transform/pos = Vector2( 2748.67, 352 )
-texture = ExtResource( 11 )
+texture = ExtResource( 12 )
 
 [node name="Копия Копия Копия корень" type="Sprite" parent="Tile Map"]
 
 transform/pos = Vector2( 3260.67, 389.333 )
-texture = ExtResource( 11 )
+texture = ExtResource( 12 )
 
 [node name="Копия Копия Копия Копия корень" type="Sprite" parent="Tile Map"]
 
 transform/pos = Vector2( 3831.33, 378.667 )
-texture = ExtResource( 11 )
+texture = ExtResource( 12 )
 
 [node name="палочка2" type="Sprite" parent="Tile Map"]
 
-transform/pos = Vector2( 493, 500 )
-texture = ExtResource( 12 )
+transform/pos = Vector2( 493, 510 )
+texture = ExtResource( 13 )
 
 [node name="дерево" type="Sprite" parent="Tile Map"]
 
-transform/pos = Vector2( 290.667, 56 )
-texture = ExtResource( 13 )
+transform/pos = Vector2( 290.667, 86 )
+texture = ExtResource( 14 )
 
 [node name="Копия дерево" type="Sprite" parent="Tile Map"]
 
-transform/pos = Vector2( 982.667, 429.333 )
-texture = ExtResource( 13 )
+transform/pos = Vector2( 982.667, 309.333 )
+texture = ExtResource( 14 )
 
 [node name="Копия Копия дерево" type="Sprite" parent="Tile Map"]
 
-transform/pos = Vector2( 2374.67, 424 )
-texture = ExtResource( 13 )
+transform/pos = Vector2( 2374.67, 444 )
+texture = ExtResource( 14 )
 
 [node name="Копия Копия Копия дерево" type="Sprite" parent="Tile Map"]
 
 transform/pos = Vector2( 3150.67, 90.6667 )
-texture = ExtResource( 13 )
+texture = ExtResource( 14 )
 
 [node name="Копия Копия Копия Копия дерево" type="Sprite" parent="Tile Map"]
 
-transform/pos = Vector2( 4152, 352 )
-texture = ExtResource( 13 )
+transform/pos = Vector2( 4152, 402 )
+texture = ExtResource( 14 )
 
 
 [editable path="background"]

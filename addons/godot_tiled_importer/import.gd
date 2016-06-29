@@ -150,6 +150,9 @@ func _on_Button_pressed():
             var layer_map = TileMap.new()
             tilemap_root.add_child(layer_map)
             layer_map.set_owner(root_node)
+            var x = l["offsetx"]
+            var y = l["offsety"]
+            layer_map.set_pos(Vector2(x,y))
             layer_map.set_name(l["name"])
             layer_map.set_cell_size(cell_size)
             #if (l.has("properties") and l["properties"].has("collidable")):
